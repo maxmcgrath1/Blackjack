@@ -6,16 +6,14 @@ body {
 
 .buttonContainer {
     display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-content: center;
+    justify-content: flex-end;
 }
 
 .flex-container {
     display: flex;
     height: 100vh;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -28,8 +26,37 @@ h2 {
     padding: 10px 10px 50px 10px
 }
 
+.game {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hitMe {
+    padding: 0 10px 10px 10px;
+    height: 50px;
+    width: 200px;
+    font-size: 30px;
+    border: solid rgba(230, 17, 17, 0.815)
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .startGame {
     text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 30px;
+    border: solid rgba(230, 17, 17, 0.815)
+}
+
+.stay {
     height: 50px;
     width: 200px;
     font-size: 30px;
