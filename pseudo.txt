@@ -5,8 +5,8 @@ Once the button is clicked, then the game begins and becomes active.
 The player is then dealt their 2 starting cards by the dealer, and the dealer gives themself 2 starting cards as well.
 The player's cards are both face up, while the dealer has 1 up and 1 down.
 Each numbered card holds a value equal to that number. Face cards are valued at 10. An Ace can be 1 or 11. This is up to the player.
-If the player has a natural 21 (an Ace with with either a face card or a 10), also called BlackJack, the player automaticallywins unless the dealer also has BlackJack.
-If there is no BlackJack, The player then has the option to "hit" (asking the dealer for another card), or to "stay" (receving no more cards). These will both be buttons.
+If the player has a natural 21 (an Ace with with either a face card or a 10), also called BlackJack, the player automatically wins unless the dealer also has BlackJack.
+If there is no BlackJack, The player then has the option to "hit" (asking the dealer for another card), or to "stay" (receiving no more cards). These will both be buttons.
 If the player chooses "hit", they will then receive one more card.
 If the player's total score (sum of the value of cards based 1-11) is less than 21, they have the option to hit again.
 If the player's total score exceeds 21, they will automatically lose the game.
@@ -14,11 +14,11 @@ In the case of this loss, I would like to display a message of "Bust! You lose t
 If the player's total score is equal to 21, the move will then go to the dealer.
 If at any point the player chooses to "stay", the move will then go to the dealer.
 The dealer will then turn over the face down card.
-If the dealer has 21, and the palyer also has 21, the round will end in a draw.
+If the dealer has 21, and the player also has 21, the round will end in a draw.
 If the dealer has 21 and the player has less than 21, the dealer wins the hand.
-If the dealer does not immediately have 21 (blackjack), they will continiue to receive cards until the total score is at least 17.
+If the dealer does not immediately have 21 (blackjack), they will continue to receive cards until the total score is at least 17.
 Once this score is reached, the dealer will no longer hit.
-If neither has 21, and the player's total score is more then the dealer's total score, the player wins the round.
+If neither has 21, and the player's total score is more than the dealer's total score, the player wins the round.
 If neither has 21, and the player's total score is less than the dealer's total score, the dealer wins the round.
 If the score is the same, the round ends in a draw.
 After the round is over, the player has the option to continue playing more hands via a reset button.
