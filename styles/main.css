@@ -5,24 +5,27 @@ body {
 }
 
 
-.clickIt {
+.flex-container {
     display: flex;
+    height: 1000px;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
 
-.flexContainer {
-    display: flex;
+h1 {
+    color: red;
+    padding: 10px 10px 10px 10px;
+}
+
+h2 {
+    padding: 10px 10px 50px 10px
 }
 
 .startGame {    
     height: 50px;
     width: 200px;
-    display: flex;
+    font-size: 30px;
     text-align: center;
-    justify-content: center;
-}
-
-.welcome {
-color: red;
+    border: solid rgba(230, 17, 17, 0.815)
 }
