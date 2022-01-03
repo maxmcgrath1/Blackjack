@@ -1,0 +1,28 @@
+body {
+    background-image: url('https://media.istockphoto.com/photos/cards-on-green-felt-casino-table-background-picture-id1125958849?k=6&m=1125958849&s=170667a&w=0&h=JBdYf-BkLbMRoRxP9oUF-u4JcQA1vqhpFK5yiiBSbog=');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.clickIt {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.startGame {    
+    height: 50px;
+    width: 200px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.welcome {
+color: red;
+}
