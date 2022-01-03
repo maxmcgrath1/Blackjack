@@ -4,10 +4,16 @@ body {
     background-size: cover;
 }
 
+.buttonContainer {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+}
 
 .flex-container {
     display: flex;
-    height: 1000px;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -22,10 +28,10 @@ h2 {
     padding: 10px 10px 50px 10px
 }
 
-.startGame {    
+.startGame {
+    text-align: center;
     height: 50px;
     width: 200px;
     font-size: 30px;
-    text-align: center ;
     border: solid rgba(230, 17, 17, 0.815)
 }

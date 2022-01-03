@@ -4,9 +4,12 @@
 * The main goal of Blackjack is for the player to beat the dealer's hand without exceeding 21
 
 ## Card Values
+* A standard 52 card deck will be used
 * All numbered cards hold a value of that number
 * Face cards hold a value of 10 
 * Aces can be either 1 or 11, this is up to the player
+    --For example: If the player has a hand of 15, chooses to hit, and receives an Ace, the value will be 1 instead of 11,
+      as an 11 would cause a bust.
 
 ## Gameplay
 * The game begins with the player being dealt 2 cards face up, while the dealer gets 1 card face up and 1 card face down, called the "hole card"

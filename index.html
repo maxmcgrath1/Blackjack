@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/app.js"></script>
+    <script src="scripts/app.js" defer></script>
     <title>BlackJack</title>
 </head>
 <body>
     <div class = "flex-container">
-        <h1>Welcome to BlackJack!</h1>
-        <h2>Click the Button to Begin</h2>
+        <h1 class = "welcomeMessage">Welcome to BlackJack!</h1>
+        <h2 class = "clickMe">Click the Button to Begin</h2>
+        <div class="card rank-7 spades">
+            <span class="rank">7</span>
+            <span class="suit">&spades;</span>
+        </div>
+    </div>
+    <div class = "buttonContainer">
         <button class = "startGame">Deal 'Em!</button>
     </div>
 </body>
