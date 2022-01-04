@@ -1,7 +1,7 @@
 let startGame = document.querySelector('.startGame');
 let welcomeMessage = document.querySelector('.welcomeMessage');
-let clickMessage = document.querySelector('.clickMessage')
-let hitMe = document.querySelector('.hitMe')
+let clickMessage = document.querySelector('.clickMessage');
+let hitMe = document.querySelector('.hitMe');
 
 startGame.addEventListener('click', function () {
     welcomeMessage.innerHTML = '';
@@ -16,9 +16,8 @@ let deck = [];
 function createDeck() {
     for (let i=0; i < values.length; i++) {
         for (let j= 0; j < suits.length; j++) {
-            // I want to create an object for each iteration that has key value pairs of suit and value
             let cards = {
-                suit: suits[j], value: values[i]
+                value: values[i], suit: suits[j]    
             };
             deck.push(cards);
         }
@@ -26,4 +25,10 @@ function createDeck() {
 }
 
 createDeck();
-console.log(deck);
+// console.log(deck);
+
+function randomDeal(deck) {
+    let deal = Math.floor(deck.length * Math.random());
+    return deck[deal];
+};
+console.log(randomDeal(deck));
