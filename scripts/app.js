@@ -33,6 +33,23 @@ startGame.addEventListener('click', function () {
 let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
 let suits = ['clubs', 'diamonds', 'spades', 'hearts']
 
+let cardScores = {
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    '10': 10,
+    'Jack': 10,
+    'Queen': 10,
+    'King': 10,
+    'Ace': 1 || 11
+};
+console.log(cardScores['King']);
+
 // Here I am creating a deck of 52 objects made of key value pairs from values and suits
 
 let deck = [];
@@ -84,11 +101,17 @@ function hitCard () {
 let playerHand = [];
 let dealerHand = [];
 
+let playerCardOne = randomDeal();
+let playerCardTwo = randomDeal();
+let dealerCardOne = randomDeal();
+let dealerCardTwo = randomDeal();
+let dealerPlays = randomDeal ();
+
 function startingDeal() {
-    let playerCardOne = randomDeal();
-    let playerCardTwo = randomDeal();
-    let dealerCardOne = randomDeal();
-    let dealerCardTwo = randomDeal();
+    playerCardOne;
+    playerCardTwo;
+    dealerCardOne;
+    dealerCardTwo;
     playerHand.push(playerCardOne);
     playerHand.push(playerCardTwo);
     dealerHand.push(dealerCardOne);
@@ -105,8 +128,17 @@ function startingDeal() {
     dealerFaceDown.innerHTML = '?'
 }
 
+function dealerTurn() {
+    dealerPlays;
+    dealerHand.push(dealerPlays);
+    console.log(dealerHand)
+    dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
+    if (dealerHand <=16) {
+        stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit;
+    }
+}
+
+
 startGame.addEventListener('click', startingDeal);
 hitMe.addEventListener('click', hitCard);
-stay.addEventListener('click', function () {
-    dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
-});
+stay.addEventListener('click', dealerTurn);
