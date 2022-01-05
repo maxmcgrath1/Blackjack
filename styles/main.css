@@ -9,6 +9,20 @@ body {
     justify-content: flex-end;
 }
 
+.cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
+    height: 200px;
+    width: 100px;
+    background-color: white;
+    font-size: 20px;
+    text-align: center;
+    border: solid black 2px;
+}
+
+.dealerCardHolder {
+    display: flex;
+    flex-direction: row;
+}
+
 .flex-container {
     display: flex;
     height: 100vh;
@@ -46,6 +60,11 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.playerCardHolder {
+    display: flex;
+    flex-direction: row;
 }
 
 .startGame {
