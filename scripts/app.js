@@ -14,7 +14,7 @@ startGame.addEventListener('click', function () {
 
 // Here I am making arrays of both card values and the suits each value can be attached to
 
-let values = [{'2': 2}, {'3': 3}, {'4': 4}, {'5': 5}, {'6': 6}, {'7': 7}, {'8': 8}, {'9': 9}, {'10': 10}, {'Jack': 10}, {'Queen': 10}, {'King': 10}, {'Ace': 1 || 11}];
+let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
 let suits = ['clubs', 'diamonds', 'spades', 'hearts']
 
 // Here I am creating a deck of 52 objects made of key value pairs from values and suits
@@ -37,24 +37,39 @@ createDeck();
 
 // Here I am creating a function that will deal a random card from the deck
 
-function randomDeal(deck) {
+function randomDeal() {
     let deal = Math.floor(deck.length * Math.random());
+    // console.log(deck[deal]);
     return deck[deal];
 };
 
-randomDeal(deck);
-// console.log(randomDeal(deck));
+randomDeal();
+
+function hitCard () {
+    let playerHitCard = randomDeal();
+    playerHand.push(playerHitCard);
+    console.log(playerHand)
+}
 
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 
 // console.log(playerHand);
 // console.log(dealerHand);
+let playerHand = [];
+let dealerHand = [];
 
 function startingDeal() {
-    let dealerHand = [randomDeal(deck), randomDeal(deck)];
-    let playerHand = [randomDeal(deck), randomDeal(deck)];
-    console.log(playerHand, dealerHand);
+    let playerCardOne = randomDeal();
+    let playerCardTwo = randomDeal();
+    let dealerCardOne = randomDeal();
+    let dealerCardTwo = randomDeal();
+    playerHand.push(playerCardOne)
+    playerHand.push(playerCardTwo)
+    dealerHand.push(dealerCardOne)
+    dealerHand.push(dealerCardTwo)
+    console.log(playerHand)
+    console.log(dealerHand)
 }
 
 startGame.addEventListener('click', startingDeal);
-hitMe.addEventListener('click', randomDeal);
+hitMe.addEventListener('click', hitCard);
