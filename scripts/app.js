@@ -21,6 +21,8 @@ let stayCardOne = document.querySelector('.stayCardOne');
 let stayCardTwo = document.querySelector('.stayCardTwo');
 let stayCardThree = document.querySelector('.stayCardThree');
 
+
+
 // Here I am making a button that clears the welcome messages and starts the game
 
 startGame.addEventListener('click', function () {
@@ -32,6 +34,8 @@ startGame.addEventListener('click', function () {
 
 let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
 let suits = ['Clubs', 'Diamonds', 'Spades', 'Hearts']
+
+// This object is going to assign an actual numerical value that can be assigned to a card
 
 let cardScores = {
     '2': 2,
@@ -89,9 +93,10 @@ function hitCard () {
         if (hitCardTwo.innerHTML === '') {
             hitCardTwo.innerHTML = playerHitCard.value + playerHitCard.suit;
         } else
-        if (hitCardThree.innerHTML === '') {
+            if (hitCardThree.innerHTML === '') {
             hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
-        }           
+            }
+    addScore(playerHand, playerTotalScore);          
 }
 
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
@@ -117,18 +122,16 @@ function startingDeal() {
     console.log(playerHand);
     cardOne.innerHTML = playerCardOne.value + playerCardOne.suit;
     cardTwo.innerHTML = playerCardTwo.value + playerCardTwo.suit;
-    // console.log(cardOne);
-    // console.log(playerCardOne.value);
-    // console.log(cardTwo);
-    // console.log(playerCardTwo.value);
     console.log(dealerHand);
     dealerFaceUp.innerHTML = dealerCardOne.value + dealerCardOne.suit;
     dealerFaceDown.innerHTML = '?'
+    addScore(playerHand, playerTotalScore);
+    addScore(dealerHand, dealerTotalScore);
 }
 
 function dealerTurn() {
     let dealerPlays = randomDeal ();
-    if (dealerHand.cardScores <=16) {
+    if (dealerHand.score <=16) {
         dealerPlays;
         stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit;
     }
@@ -137,6 +140,21 @@ function dealerTurn() {
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
 }
 
+let dealerTotalScore = 0
+let playerTotalScore = 0
+
+function addScore (hand, total) {
+    total = 0
+    for (let i = 0; i < hand.length; i++) {
+        total += hand[i].score
+        }
+        console.log(total)
+}
+
+playerTotalScore = 0
+for (let i=0; i<playerHand.length; i++) {
+    playerTotalScore += playerHand[i].score
+}
 
 startGame.addEventListener('click', startingDeal);
 hitMe.addEventListener('click', hitCard);
