@@ -11,9 +11,12 @@ body {
 
 .cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
     height: 200px;
-    width: 100px;
+    width: 120px;
     background-color: white;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     border: solid black 2px;
 }

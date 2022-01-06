@@ -31,7 +31,7 @@ startGame.addEventListener('click', function () {
 // Here I am making arrays of both card values and the suits each value can be attached to
 
 let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
-let suits = ['clubs', 'diamonds', 'spades', 'hearts']
+let suits = ['Clubs', 'Diamonds', 'Spades', 'Hearts']
 
 let cardScores = {
     '2': 2,
@@ -48,7 +48,7 @@ let cardScores = {
     'King': 10,
     'Ace': 1 || 11
 };
-console.log(cardScores['King']);
+// console.log(cardScores.Queen);
 
 // Here I am creating a deck of 52 objects made of key value pairs from values and suits
 
@@ -58,7 +58,7 @@ function createDeck() {
     for (let i=0; i < values.length; i++) {
         for (let j= 0; j < suits.length; j++) {
             let cards = {
-                value: values[i], suit: suits[j]    
+                value: values[i], suit: suits[j], score: cardScores[values[i]]
             };
             deck.push(cards);
         }
@@ -72,7 +72,6 @@ createDeck();
 
 function randomDeal() {
     let deal = Math.floor(deck.length * Math.random());
-    // console.log(deck[deal]);
     return deck[deal];
 };
 
@@ -105,7 +104,6 @@ let playerCardOne = randomDeal();
 let playerCardTwo = randomDeal();
 let dealerCardOne = randomDeal();
 let dealerCardTwo = randomDeal();
-let dealerPlays = randomDeal ();
 
 function startingDeal() {
     playerCardOne;
@@ -119,23 +117,24 @@ function startingDeal() {
     console.log(playerHand);
     cardOne.innerHTML = playerCardOne.value + playerCardOne.suit;
     cardTwo.innerHTML = playerCardTwo.value + playerCardTwo.suit;
-    console.log(cardOne);
-    console.log(playerCardOne.value);
-    console.log(cardTwo);
-    console.log(playerCardTwo.value);
+    // console.log(cardOne);
+    // console.log(playerCardOne.value);
+    // console.log(cardTwo);
+    // console.log(playerCardTwo.value);
     console.log(dealerHand);
     dealerFaceUp.innerHTML = dealerCardOne.value + dealerCardOne.suit;
     dealerFaceDown.innerHTML = '?'
 }
 
 function dealerTurn() {
-    dealerPlays;
+    let dealerPlays = randomDeal ();
+    if (dealerHand.cardScores <=16) {
+        dealerPlays;
+        stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit;
+    }
     dealerHand.push(dealerPlays);
     console.log(dealerHand)
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
-    if (dealerHand <=16) {
-        stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit;
-    }
 }
 
 
