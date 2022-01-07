@@ -2,6 +2,9 @@
 
 let welcomeMessage = document.querySelector('.welcomeMessage');
 let clickMessage = document.querySelector('.clickMessage');
+let dealerScore = document.querySelector('.dealerScore');
+let playerScore = document.querySelector('.playerScore');
+let endGameStatus = document.querySelector('.endGameStatus');
 
 let startGame = document.querySelector('.startGame');
 let hitMe = document.querySelector('.hitMe');
@@ -132,11 +135,22 @@ function dealerTurn() {
     let dealerPlays = randomDeal ();
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
+    console.log(stayCardOne.innerHTML.length);
     if (dealerTotalScore < 17) {
         dealerPlays;
-        stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit;
         dealerHand.push(dealerPlays);
-    }
+        addScore(dealerHand);
+        if (stayCardOne.innerHTML === '') {
+            console.log('Brain hurt')
+            stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit
+            return dealerTurn();    
+        } else if (stayCardTwo.innerHTML === '') {
+            stayCardTwo.innerHTML = dealerPlays.value + dealerPlays.suit
+            return dealerTurn(); 
+        } else {
+            stayCardThree.innerHTML = dealerPlays.value + dealerPlays.suit
+        }
+    } 
     
     console.log(dealerHand);
     console.log('dealer total is', addScore(dealerHand));
@@ -153,6 +167,7 @@ function addScore (hand, total) {
         console.log(total)
         return total;
 }
+
 
 
 startGame.addEventListener('click', startingDeal);

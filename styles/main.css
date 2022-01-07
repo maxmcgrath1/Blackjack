@@ -83,6 +83,12 @@ h2 {
     flex-direction: row;
 }
 
+.scoreContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
 .startGame {
     text-align: center;
     height: 50px;
