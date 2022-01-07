@@ -88,7 +88,7 @@ function randomDeal() {
 function hitCard () {
     let playerHitCard = randomDeal();
     playerHand.push(playerHitCard);
-    console.log(playerHand)
+    console.log('player hand is', playerHand)
     if (hitCardOne.innerHTML === '') {
         hitCardOne.innerHTML = playerHitCard.value + playerHitCard.suit;
     } else
@@ -98,7 +98,8 @@ function hitCard () {
             if (hitCardThree.innerHTML === '') {
             hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
             }
-    addScore(playerHand, playerTotalScore);          
+    addScore(playerHand, playerTotalScore);
+    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);          
 }
 
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
@@ -129,19 +130,22 @@ function startingDeal() {
     dealerFaceDown.innerHTML = '?'
     addScore(playerHand, playerTotalScore);
     addScore(dealerHand, dealerTotalScore);
+    dealerScore.innerHTML = 'Dealer Score: ?'
+    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
 }
+
 
 function dealerTurn() {
     let dealerPlays = randomDeal ();
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
-    console.log(stayCardOne.innerHTML.length);
+    dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
     if (dealerTotalScore < 17) {
         dealerPlays;
         dealerHand.push(dealerPlays);
         addScore(dealerHand);
+        dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
         if (stayCardOne.innerHTML === '') {
-            console.log('Brain hurt')
             stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit
             return dealerTurn();    
         } else if (stayCardTwo.innerHTML === '') {
@@ -151,9 +155,6 @@ function dealerTurn() {
             stayCardThree.innerHTML = dealerPlays.value + dealerPlays.suit
         }
     } 
-    
-    console.log(dealerHand);
-    console.log('dealer total is', addScore(dealerHand));
 }
 
 let dealerTotalScore = 0
