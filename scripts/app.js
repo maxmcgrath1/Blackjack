@@ -1,25 +1,31 @@
 // Here I am assigning variables to elements from the HTML
 
+// These are my displayed messages
 let welcomeMessage = document.querySelector('.welcomeMessage');
 let clickMessage = document.querySelector('.clickMessage');
 let dealerScore = document.querySelector('.dealerScore');
 let playerScore = document.querySelector('.playerScore');
 let endGameStatus = document.querySelector('.endGameStatus');
 
+// These are my buttons
 let startGame = document.querySelector('.startGame');
 let hitMe = document.querySelector('.hitMe');
 let stay = document.querySelector('.stay');
 
+// These are the inital player cards
 let cardOne = document.querySelector('.cardOne');
 let cardTwo = document.querySelector('.cardTwo');
 
+// These are the initial dealer cards
 let dealerFaceUp = document.querySelector('.dealerFaceUp');
 let dealerFaceDown = document.querySelector('.dealerFaceDown');
 
+// These are for if a player wants to hit
 let hitCardOne = document.querySelector('.hitCardOne');
 let hitCardTwo = document.querySelector('.hitCardTwo');
 let hitCardThree = document.querySelector('.hitCardThree');
 
+// These are for when a player stays and it becomes the dealer's turn
 let stayCardOne = document.querySelector('.stayCardOne');
 let stayCardTwo = document.querySelector('.stayCardTwo');
 let stayCardThree = document.querySelector('.stayCardThree');
@@ -56,7 +62,6 @@ let cardScores = {
     'King': 10,
     'Ace': 11 || 1
 };
-// console.log(cardScores.Queen);
 
 // Here I am creating a deck of 52 objects made of key value pairs from values and suits
 
@@ -141,15 +146,15 @@ function dealerTurn() {
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
     dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
+    checkWin();
     if (dealerTotalScore < 17) {
         dealerPlays;
         dealerHand.push(dealerPlays);
         addScore(dealerHand);
         dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
-        checkWin();
         if (stayCardOne.innerHTML === '') {
             stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit
-            return dealerTurn();    
+            return dealerTurn(); 
         } else if (stayCardTwo.innerHTML === '') {
             stayCardTwo.innerHTML = dealerPlays.value + dealerPlays.suit
             return dealerTurn(); 
@@ -176,7 +181,7 @@ function checkBust() {
     console.log(playerTotalScore)
     if (playerTotalScore > 21) {
         console.log('bust');
-        endGameStatus.innerHTML = 'You bust, dealer wins'
+        endGameStatus.innerHTML = 'You bust! Dealer Wins'
     }
 }
 
@@ -184,13 +189,19 @@ function checkWin() {
     dealerTotalScore = addScore(dealerHand)
     playerTotalScore = addScore(playerHand)
     if (dealerTotalScore > 21) {
-        endGameStatus.innerHTML = 'Dealer busts! You win!'
-    }
-    
+        endGameStatus.innerHTML = 'Dealer Busts! You Win!'
+    } else
+        if (dealerTotalScore > playerTotalScore) {
+            endGameStatus.innerHTML = 'Dealer Wins. Better Luck Next Time!'
+        } else
+            if (playerTotalScore > dealerTotalScore) {
+                endGameStatus.innerHTML = 'YOU WIN!'
+            } else
+                endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
 }
 
 
 
-startGame.addEventListener('click', startingDeal);
+startGame.addEventListener('click', startingDeal, {once : true}); 
 hitMe.addEventListener('click', hitCard);
 stay.addEventListener('click', dealerTurn);

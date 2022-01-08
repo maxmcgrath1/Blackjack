@@ -16,6 +16,11 @@ body {
     height: 60%;
 }
 
+.endGameStatus {
+    font-size: 50px;
+    color: rgb(228, 4, 4);
+}
+
 .rank {
     height: 35%;
 }
