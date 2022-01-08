@@ -54,7 +54,7 @@ let cardScores = {
     'Jack': 10,
     'Queen': 10,
     'King': 10,
-    'Ace': 1 || 11
+    'Ace': 11 || 1
 };
 // console.log(cardScores.Queen);
 
@@ -85,9 +85,10 @@ function randomDeal() {
 
 // I want to add one card to the player hand, using my random deal function 
 
-function hitCard () {
+function hitCard() {
     let playerHitCard = randomDeal();
     playerHand.push(playerHitCard);
+    checkBust ();          
     console.log('player hand is', playerHand)
     if (hitCardOne.innerHTML === '') {
         hitCardOne.innerHTML = playerHitCard.value + playerHitCard.suit;
@@ -99,7 +100,7 @@ function hitCard () {
             hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
             }
     addScore(playerHand, playerTotalScore);
-    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);          
+    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
 }
 
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
@@ -145,6 +146,7 @@ function dealerTurn() {
         dealerHand.push(dealerPlays);
         addScore(dealerHand);
         dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
+        checkWin();
         if (stayCardOne.innerHTML === '') {
             stayCardOne.innerHTML = dealerPlays.value + dealerPlays.suit
             return dealerTurn();    
@@ -167,6 +169,24 @@ function addScore (hand, total) {
         }
         console.log(total)
         return total;
+}
+
+function checkBust() {
+    playerTotalScore = addScore(playerHand)
+    console.log(playerTotalScore)
+    if (playerTotalScore > 21) {
+        console.log('bust');
+        endGameStatus.innerHTML = 'You bust, dealer wins'
+    }
+}
+
+function checkWin() {
+    dealerTotalScore = addScore(dealerHand)
+    playerTotalScore = addScore(playerHand)
+    if (dealerTotalScore > 21) {
+        endGameStatus.innerHTML = 'Dealer busts! You win!'
+    }
+    
 }
 
 
