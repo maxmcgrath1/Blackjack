@@ -11,6 +11,7 @@ let endGameStatus = document.querySelector('.endGameStatus');
 let startGame = document.querySelector('.startGame');
 let hitMe = document.querySelector('.hitMe');
 let stay = document.querySelector('.stay');
+let restartGame = document.querySelector('.restartGame');
 
 // These are the inital player cards
 let cardOne = document.querySelector('.cardOne');
@@ -199,7 +200,7 @@ function checkWin() {
     dealerTotalScore = addScore(dealerHand)
     playerTotalScore = addScore(playerHand)
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
-    endGameStatus.innerHTML = 'BLACKJACK! WINNER WINNER CHICKEN DINNER!'
+    endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER!'
     } else
         if (dealerTotalScore > 21) {
             endGameStatus.innerHTML = 'Dealer Busts! You Win!'
@@ -220,3 +221,4 @@ function checkWin() {
 startGame.addEventListener('click', startingDeal, {once : true}); 
 hitMe.addEventListener('click', hitCard);
 stay.addEventListener('click', dealerTurn);
+// restartGame.addEventListener
