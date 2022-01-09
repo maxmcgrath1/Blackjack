@@ -144,12 +144,14 @@ function dealerTurn() {
     let dealerPlays = randomDeal ();
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
+    playerTotalScore = addScore(playerHand);
     dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
     console.log('number of player cards is ' + playerHand.length);
+    console.log('number of dealer cards is ' + dealerHand.length);
     console.log('dealer score is ' + dealerTotalScore);
     console.log('player score is ' + playerTotalScore);
     checkWin();
-    if (dealerTotalScore < 17) {
+    if (playerTotalScore !==21 && playerHand.length !==2 && dealerTotalScore < 17) {
         dealerPlays;
         dealerHand.push(dealerPlays);
         addScore(dealerHand);
@@ -197,7 +199,7 @@ function checkWin() {
     dealerTotalScore = addScore(dealerHand)
     playerTotalScore = addScore(playerHand)
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
-    endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER'
+    endGameStatus.innerHTML = 'BLACKJACK! WINNER WINNER CHICKEN DINNER!'
     } else
         if (dealerTotalScore > 21) {
             endGameStatus.innerHTML = 'Dealer Busts! You Win!'
