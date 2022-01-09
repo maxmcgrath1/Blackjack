@@ -79,7 +79,6 @@ function createDeck() {
 }
 
 createDeck();
-// console.log(deck);
 
 // Here I am creating a function that will deal a random card from the deck
 
@@ -146,6 +145,9 @@ function dealerTurn() {
     dealerFaceDown.innerHTML = dealerCardTwo.value + dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
     dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
+    console.log('number of player cards is ' + playerHand.length);
+    console.log('dealer score is ' + dealerTotalScore);
+    console.log('player score is ' + playerTotalScore);
     checkWin();
     if (dealerTotalScore < 17) {
         dealerPlays;
@@ -172,34 +174,45 @@ function addScore (hand, total) {
     for (let i = 0; i < hand.length; i++) {
         total += hand[i].score
         }
-        console.log(total)
+        // console.log(total)
         return total;
 }
 
 function checkBust() {
     playerTotalScore = addScore(playerHand)
-    console.log(playerTotalScore)
     if (playerTotalScore > 21) {
-        console.log('bust');
         endGameStatus.innerHTML = 'You bust! Dealer Wins'
     }
 }
 
+// function checkBlackack () {
+//     playerTotalScore = addScore(playerHand)
+//     dealerTotalScore = addScore(dealerHand)
+//     if (playerHand.length = 2 && playerTotalScore == 21 && dealerHand.length < 3 && dealerTotalScore != 21) {
+//         endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER'
+//     }
+// }
+
 function checkWin() {
     dealerTotalScore = addScore(dealerHand)
     playerTotalScore = addScore(playerHand)
-    if (dealerTotalScore > 21) {
-        endGameStatus.innerHTML = 'Dealer Busts! You Win!'
+    if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
+    endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER'
     } else
-        if (dealerTotalScore > playerTotalScore) {
-            endGameStatus.innerHTML = 'Dealer Wins. Better Luck Next Time!'
+        if (dealerTotalScore > 21) {
+            endGameStatus.innerHTML = 'Dealer Busts! You Win!'
         } else
-            if (playerTotalScore > dealerTotalScore) {
-                endGameStatus.innerHTML = 'YOU WIN!'
+            if (dealerTotalScore > playerTotalScore) {
+                endGameStatus.innerHTML = 'Dealer Wins. Better Luck Next Time!'
             } else
-                endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
+                if (playerTotalScore > dealerTotalScore) {
+                    endGameStatus.innerHTML = 'YOU WIN!'
+                } else
+                    if (playerTotalScore == dealerTotalScore) {
+                        endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
+                    }               
 }
-
+                        
 
 
 startGame.addEventListener('click', startingDeal, {once : true}); 
