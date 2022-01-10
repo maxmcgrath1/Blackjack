@@ -33,7 +33,7 @@ let stayCardThree = document.querySelector('.stayCardThree');
 
 let gameActive = true;
 
-let acesHaveChanged = false;
+// let acesHaveChanged = false;
 
 // Here I am making a button that clears the welcome messages and starts the game
 
@@ -118,7 +118,7 @@ function startingDeal() {
     addScore(dealerHand, dealerTotalScore);
     dealerScore.innerHTML = 'Dealer Score: ?'
     playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
-    acesHaveChanged = false;
+    // acesHaveChanged = false;
 }
 
 // I want to add one card to the player hand, using my random deal function 
@@ -127,6 +127,7 @@ function hitCard() {
     let playerHitCard = randomDeal();
     playerHand.push(playerHitCard);
     console.log('player hand is', playerHand)
+    checkBust ();          
     if (hitCardOne.innerHTML === '') {
         hitCardOne.innerHTML = playerHitCard.value + playerHitCard.suit;
     } else
@@ -137,7 +138,6 @@ function hitCard() {
         hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
     }
     addScore(playerHand, playerTotalScore);
-    checkBust ();          
     playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
 }
 
@@ -185,7 +185,14 @@ function addScore (hand, total) {
         return total;
 }
 
-// function checkBust() {
+function checkBust () {
+    playerTotalScore = addScore (playerHand);
+    if (playerTotalScore > 21) {
+        endGameStatus.innerHTML = 'You bust! Dealer wins'
+    }
+}
+
+// function checkBustWithAces() {
 //     playerTotalScore = addScore(playerHand)
 //     if (playerTotalScore > 21 && !checkAce() && !acesHaveChanged) {
 //         endGameStatus.innerHTML = 'You bust! Dealer Wins'
