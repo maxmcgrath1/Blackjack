@@ -17,6 +17,13 @@ let restartGame = document.querySelector('.restartGame');
 let cardOne = document.querySelector('.cardOne');
 let cardTwo = document.querySelector('.cardTwo');
 
+let cardOneRank = document.querySelector('.cardOne .rank')
+let cardOneSuit = document.querySelector('.cardOne .suit')
+
+let cardTwoRank = document.querySelector('.cardTwo .rank')
+let cardTwoSuit = document.querySelector('.cardTwo .suit')
+
+
 // These are the initial dealer cards
 let dealerFaceUp = document.querySelector('.dealerFaceUp');
 let dealerFaceDown = document.querySelector('.dealerFaceDown');
@@ -26,7 +33,16 @@ let hitCardOne = document.querySelector('.hitCardOne');
 let hitCardTwo = document.querySelector('.hitCardTwo');
 let hitCardThree = document.querySelector('.hitCardThree');
 
+let hitCardOneRank = document.querySelector('.hitCardOne .rank')
+let hitCardOneSuit = document.querySelector('.hitCardOne .suit')
+
+let hitCardTwoRank = document.querySelector('.hitCardTwo .rank')
+let hitCardTwoSuit = document.querySelector('.hitCardTwo .suit')
+
+let hitCardThreeRank = document.querySelector('.hitCardThree .rank')
+let hitCardThreeSuit = document.querySelector('.hitCardThree .suit')
 // These are for when a player stays and it becomes the dealer's turn
+
 let stayCardOne = document.querySelector('.stayCardOne');
 let stayCardTwo = document.querySelector('.stayCardTwo');
 let stayCardThree = document.querySelector('.stayCardThree');
@@ -109,8 +125,10 @@ function startingDeal() {
     dealerHand.push(dealerCardOne);
     dealerHand.push(dealerCardTwo);
     console.log('player hand is', playerHand);
-    cardOne.innerHTML = playerCardOne.value + playerCardOne.suit;
-    cardTwo.innerHTML = playerCardTwo.value + playerCardTwo.suit;
+    cardOneRank.innerHTML = playerCardOne.value;
+    cardOneSuit.innerHTML = playerCardOne.suit;
+    cardTwoRank.innerHTML = playerCardTwo.value;
+    cardTwoSuit.innerHTML = playerCardTwo.suit;
     console.log('dealer hand is', dealerHand);
     dealerFaceUp.innerHTML = dealerCardOne.value + dealerCardOne.suit;
     dealerFaceDown.innerHTML = '?'
@@ -128,14 +146,14 @@ function hitCard() {
     playerHand.push(playerHitCard);
     console.log('player hand is', playerHand)
     checkBust ();          
-    if (hitCardOne.innerHTML === '') {
-        hitCardOne.innerHTML = playerHitCard.value + playerHitCard.suit;
+    if (hitCardOneRank.innerHTML === '') {
+        hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
     } else
-    if (hitCardTwo.innerHTML === '') {
-        hitCardTwo.innerHTML = playerHitCard.value + playerHitCard.suit;
+    if (hitCardTwoRank.innerHTML === '') {
+        hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
     } else
-    if (hitCardThree.innerHTML === '') {
-        hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
+    if (hitCardThreeRank.innerHTML === '') {
+        hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
     }
     addScore(playerHand, playerTotalScore);
     playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
