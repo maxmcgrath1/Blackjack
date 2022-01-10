@@ -28,6 +28,7 @@ body {
 .suit {
     height: 65%;
     text-align: center;
+    font-size: 60px;
 }
 
 .cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
