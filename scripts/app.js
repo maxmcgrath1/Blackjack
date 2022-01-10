@@ -33,6 +33,7 @@ let stayCardThree = document.querySelector('.stayCardThree');
 
 let gameActive = true;
 
+let acesHaveChanged = false;
 
 // Here I am making a button that clears the welcome messages and starts the game
 
@@ -88,28 +89,7 @@ function randomDeal() {
     return deck[deal];
 };
 
-// I want to add one card to the player hand, using my random deal function 
-
-function hitCard() {
-    let playerHitCard = randomDeal();
-    playerHand.push(playerHitCard);
-    checkBust ();          
-    console.log('player hand is', playerHand)
-    if (hitCardOne.innerHTML === '') {
-        hitCardOne.innerHTML = playerHitCard.value + playerHitCard.suit;
-    } else
-        if (hitCardTwo.innerHTML === '') {
-            hitCardTwo.innerHTML = playerHitCard.value + playerHitCard.suit;
-        } else
-            if (hitCardThree.innerHTML === '') {
-            hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
-            }
-    addScore(playerHand, playerTotalScore);
-    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
-}
-
-// Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
-
+// I am making the player and dealer hands both empty arrays
 
 let playerHand = [];
 let dealerHand = [];
@@ -138,8 +118,30 @@ function startingDeal() {
     addScore(dealerHand, dealerTotalScore);
     dealerScore.innerHTML = 'Dealer Score: ?'
     playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
+    acesHaveChanged = false;
 }
 
+// I want to add one card to the player hand, using my random deal function 
+
+function hitCard() {
+    let playerHitCard = randomDeal();
+    playerHand.push(playerHitCard);
+    console.log('player hand is', playerHand)
+    if (hitCardOne.innerHTML === '') {
+        hitCardOne.innerHTML = playerHitCard.value + playerHitCard.suit;
+    } else
+    if (hitCardTwo.innerHTML === '') {
+        hitCardTwo.innerHTML = playerHitCard.value + playerHitCard.suit;
+    } else
+    if (hitCardThree.innerHTML === '') {
+        hitCardThree.innerHTML = playerHitCard.value + playerHitCard.suit;
+    }
+    addScore(playerHand, playerTotalScore);
+    checkBust ();          
+    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
+}
+
+// Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 
 function dealerTurn() {
     let dealerPlays = randomDeal ();
@@ -152,7 +154,10 @@ function dealerTurn() {
     console.log('dealer score is ' + dealerTotalScore);
     console.log('player score is ' + playerTotalScore);
     checkWin();
-    if (playerTotalScore !==21 && playerHand.length !==2 && dealerTotalScore < 17) {
+    if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
+        return checkWin ();
+    }else
+    if ( dealerTotalScore < 17) {
         dealerPlays;
         dealerHand.push(dealerPlays);
         addScore(dealerHand);
@@ -177,23 +182,38 @@ function addScore (hand, total) {
     for (let i = 0; i < hand.length; i++) {
         total += hand[i].score
         }
-        // console.log(total)
         return total;
 }
 
-function checkBust() {
-    playerTotalScore = addScore(playerHand)
-    if (playerTotalScore > 21) {
-        endGameStatus.innerHTML = 'You bust! Dealer Wins'
-    }
-}
-
-// function checkBlackack () {
+// function checkBust() {
 //     playerTotalScore = addScore(playerHand)
-//     dealerTotalScore = addScore(dealerHand)
-//     if (playerHand.length = 2 && playerTotalScore == 21 && dealerHand.length < 3 && dealerTotalScore != 21) {
-//         endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER'
+//     if (playerTotalScore > 21 && !checkAce() && !acesHaveChanged) {
+//         endGameStatus.innerHTML = 'You bust! Dealer Wins'
+//         aceChange ();
+//     }else if (playerTotalScore > 21 && !checkAce() && acesHaveChanged) {
+//         endGameStatus.innerHTML = 'You bust! Dealer Wins'
+//     } else if (playerTotalScore > 21) {
+//         endGameStatus.innerHTML = 'You bust! Dealer wins'
 //     }
+// }
+
+// function checkAce () {  
+//     for (let i=0; i < playerHand.length; i++) {
+//         if (playerHand[i].value === 'Ace')
+//         return true;
+//     }
+//     return false;
+// }
+
+// function aceChange () {  
+//     for (let i=0; i < playerHand.length; i++) {
+//         if (playerHand[i].value === 'Ace') {
+//             playerHand[i].score = 1
+//         }
+        
+//     } acesHaveChanged = true;
+//     console.log(playerHand)
+//     console.log(playerTotalScore)
 // }
 
 function checkWin() {
