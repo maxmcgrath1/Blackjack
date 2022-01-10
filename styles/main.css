@@ -54,11 +54,13 @@ body {
 }
 
 h1 {
+    font-size: 50px;
     color: red;
     padding: 10px 10px 10px 10px;
 }
 
 h2 {
+    font-size: 30px;
     padding: 10px 10px 50px 10px
 }
 

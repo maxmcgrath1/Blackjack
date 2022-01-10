@@ -283,4 +283,3 @@ function checkWin() {
 startGame.addEventListener('click', startingDeal, {once : true}); 
 hitMe.addEventListener('click', hitCard);
 stay.addEventListener('click', dealerTurn);
-// restartGame.addEventListener
