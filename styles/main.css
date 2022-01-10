@@ -19,6 +19,7 @@ body {
 .endGameStatus {
     font-size: 50px;
     color: rgb(228, 4, 4);
+    margin-left: 200px;
 }
 
 .rank {
@@ -93,7 +94,7 @@ h2 {
 
 .scoreContainer {
     height: 200px;
-    width: 500px;
+    width: 700px;
     font-size: 30px;
     display: flex;
     flex-direction: column;
@@ -121,4 +122,20 @@ h2 {
     width: 200px;
     font-size: 30px;
     border: solid rgba(230, 17, 17, 0.815)
+}
+
+.dealerScore {
+    margin-left: 100px;
+}
+
+.playerScore {
+    margin-left: 100px;
+}
+
+.playerCards {
+    font-weight: bold;
+}
+
+.dealerCards {
+    font-weight: bold;
 }
