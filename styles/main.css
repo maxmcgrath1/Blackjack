@@ -6,7 +6,7 @@ body {
 
 .buttonContainer {
     display: flex;
-    justify-content: flex-end;
+    padding-top: 20px;
 }
 
 .card {
@@ -87,10 +87,15 @@ h2 {
     align-items: center;
 }
 
+.clickMessage {
+    font-size: 30px;
+    padding-top: 5px;
+}
+
 .welcomeMessage {
     font-size: 50px;
     color: red;
-    margin-top: 17%;
+    margin-top: 20%;
 }
 
 .playerCardHolder {
