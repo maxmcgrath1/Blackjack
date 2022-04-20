@@ -277,8 +277,6 @@ function checkWin() {
                         endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
                     }               
 }
-                        
-
 
 startGame.addEventListener('click', startingDeal, {once : true}); 
 hitMe.addEventListener('click', hitCard);
