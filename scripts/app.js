@@ -110,7 +110,7 @@ function createDeck() {
         }
     }
 }
-
+console.log(deck)
 createDeck();
 
 // Here I am creating a function that will deal a random card from the deck

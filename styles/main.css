@@ -50,7 +50,7 @@ body {
     display: flex;
     height: 100vh;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
@@ -85,6 +85,12 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.welcomeMessage {
+    font-size: 50px;
+    color: red;
+    margin-top: 17%;
 }
 
 .playerCardHolder {
