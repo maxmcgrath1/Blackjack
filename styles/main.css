@@ -7,6 +7,7 @@ body {
 .buttonContainer {
     display: flex;
     padding-top: 20px;
+    justify-content: center;
 }
 
 .card {
@@ -66,7 +67,8 @@ h2 {
 }
 
 .game {
-    height: 80vh;
+    height: 800px;
+    width: 960px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -144,9 +146,17 @@ h2 {
 }
 
 .playerCards {
+    display: flex;
     font-weight: bold;
+    align-items: center;
+    padding-right: 17px;
+    font-size: 25px;
 }
 
 .dealerCards {
+    display: flex;
     font-weight: bold;
+    align-items: center;
+    padding-right: 15px;
+    font-size: 25px;
 }
