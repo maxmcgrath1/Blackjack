@@ -104,7 +104,9 @@ function createDeck() {
     for (let i=0; i < values.length; i++) {
         for (let j= 0; j < suits.length; j++) {
             let cards = {
-                value: values[i], suit: suits[j], score: cardScores[values[i]]
+                value: values[i], 
+                suit: suits[j], 
+                score: cardScores[values[i]]
             };
             deck.push(cards);
         }
@@ -129,6 +131,9 @@ let playerCardOne = randomDeal();
 let playerCardTwo = randomDeal();
 let dealerCardOne = randomDeal();
 let dealerCardTwo = randomDeal();
+
+
+// Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 
 function startingDeal() {
     playerCardOne;
@@ -165,17 +170,16 @@ function hitCard() {
     if (hitCardOneRank.innerHTML === '') {
         hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
     } else
-    if (hitCardTwoRank.innerHTML === '') {
-        hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
-    } else
-    if (hitCardThreeRank.innerHTML === '') {
-        hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
-    }
+        if (hitCardTwoRank.innerHTML === '') {
+            hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
+        } else
+            if (hitCardThreeRank.innerHTML === '') {
+                hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
+            }
     addScore(playerHand, playerTotalScore);
     playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
 }
 
-// Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 
 function dealerTurn() {
     let dealerPlays = randomDeal ();
@@ -216,8 +220,8 @@ function addScore (hand, total) {
     total = 0
     for (let i = 0; i < hand.length; i++) {
         total += hand[i].score
-        }
-        return total;
+    }
+    return total;
 }
 
 function checkBust () {
