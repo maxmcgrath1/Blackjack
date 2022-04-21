@@ -195,22 +195,23 @@ function dealerTurn() {
     checkWin();
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
         return checkWin ();
-    }else
-    if ( dealerTotalScore < 17) {
-        dealerPlays;
-        dealerHand.push(dealerPlays);
-        addScore(dealerHand);
-        dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
+    } else
+        if ( dealerTotalScore < 17) {
+            dealerPlays;
+            dealerHand.push(dealerPlays);
+            addScore(dealerHand);
+            dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
         if (stayCardOneRank.innerHTML === '') {
             stayCardOneRank.innerHTML = dealerPlays.value, stayCardOneSuit.innerHTML = dealerPlays.suit
             return dealerTurn(); 
-        } else if (stayCardTwoRank.innerHTML === '') {
-            stayCardTwoRank.innerHTML = dealerPlays.value, stayCardTwoSuit.innerHTML = dealerPlays.suit
-            return dealerTurn(); 
-        } else {
-            stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
-        }
-    } 
+        } else 
+            if (stayCardTwoRank.innerHTML === '') {
+                stayCardTwoRank.innerHTML = dealerPlays.value, stayCardTwoSuit.innerHTML = dealerPlays.suit
+                return dealerTurn(); 
+            } else {
+                stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
+            }
+        }    
 }
 
 let dealerTotalScore = 0
