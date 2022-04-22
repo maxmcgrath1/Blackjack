@@ -12,18 +12,14 @@
     <div class = "flex-container">
         <div class = "game">
             <div class = "messages">
-                <div class = "welcomeMessage">Welcome to BlackJack!</div>
+                <div class = "welcomeMessage">Welcome to Blackjack!</div>
                 <div class = "clickMessage">Click on Deal 'Em to Begin</div>
-            </div>
-            <div class = scoreContainer>
-                <div class = "dealerScore">Dealer Score:</div>
-                <div class = "playerScore">Player Score:</div>
                 <div class = "endGameStatus"></div>
             </div>
-
-                
             <div class = "dealerCardHolder">
-                <div class= "dealerCards">Dealer Hand:</div>
+                <div class= "dealerCards">
+                    Dealer <br /> Hand:
+                </div>
                 <div class = "dealerFaceUp card">
                     <div class="rank"></div>
                     <div class="suit"></div>
@@ -44,9 +40,14 @@
                     <div class="rank"></div>
                     <div class="suit"></div>
                 </div>
+                <div class = "dealerScore">
+                    Dealer <br /> Score:
+                </div>
             </div>
             <div class = "playerCardHolder">
-                <div class = "playerCards">Player Hand:</div>
+                <div class = "playerCards">
+                    Player <br /> Hand:
+                </div>
                 <div class = "cardOne card">
                     <div class="rank"></div>
                     <div class="suit"></div>
@@ -67,13 +68,15 @@
                     <div class="rank"></div>
                     <div class="suit"></div>
                 </div>
+                <div class = "playerScore">
+                    Player <br /> Score:
+                </div>
             </div>
             <div class = "buttonContainer">
                 <button class = "startGame">Deal 'Em!</button>
                 <button class = "hitMe">Hit Me</button>
                 <button class = "stay">Stay</button>
                 <button class = "restartGame" onclick="window.location.href='https://maxmcgrath1.github.io/Blackjack/'">Play Again</button>
-
             </div>
         </div>
     </div>

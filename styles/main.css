@@ -7,6 +7,7 @@ body {
 .buttonContainer {
     display: flex;
     padding-top: 20px;
+    justify-content: center;
 }
 
 .card {
@@ -16,10 +17,18 @@ body {
     height: 60%;
 }
 
+.cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
+    height: 200px;
+    width: 120px;
+    background-color: white;
+    font-size: 35px;
+    display: flex;
+    border: solid black 2px;
+}
+
 .endGameStatus {
     font-size: 50px;
     color: rgb(228, 4, 4);
-    margin-left: 200px;
 }
 
 .rank {
@@ -32,18 +41,9 @@ body {
     font-size: 60px;
 }
 
-.cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
-    height: 200px;
-    width: 120px;
-    background-color: white;
-    font-size: 35px;
-    display: flex;
-    border: solid black 2px;
-}
-
 .dealerCardHolder {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
 .flex-container {
@@ -54,19 +54,9 @@ body {
     align-items: center;
 }
 
-h1 {
-    font-size: 50px;
-    color: red;
-    padding: 10px 10px 10px 10px;
-}
-
-h2 {
-    font-size: 30px;
-    padding: 10px 10px 50px 10px
-}
-
 .game {
-    height: 80vh;
+    height: 800px;
+    width: 960px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -85,6 +75,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 290px;
 }
 
 .clickMessage {
@@ -100,17 +91,7 @@ h2 {
 
 .playerCardHolder {
     display: flex;
-    flex-direction: row;
-}
-
-.scoreContainer {
-    height: 200px;
-    width: 700px;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-content: center;
 }
 
 .restartGame {
@@ -136,17 +117,35 @@ h2 {
 }
 
 .dealerScore {
-    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    padding-left: 3%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .playerScore {
-    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    padding-left: 3%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .playerCards {
+    display: flex;
     font-weight: bold;
+    align-items: center;
+    padding-right: 3%;
+    font-size: 25px;
 }
 
 .dealerCards {
+    display: flex;
     font-weight: bold;
+    align-items: center;
+    padding-right: 3%;
+    font-size: 25px;
 }

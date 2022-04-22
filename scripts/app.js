@@ -104,7 +104,9 @@ function createDeck() {
     for (let i=0; i < values.length; i++) {
         for (let j= 0; j < suits.length; j++) {
             let cards = {
-                value: values[i], suit: suits[j], score: cardScores[values[i]]
+                value: values[i], 
+                suit: suits[j], 
+                score: cardScores[values[i]]
             };
             deck.push(cards);
         }
@@ -130,6 +132,9 @@ let playerCardTwo = randomDeal();
 let dealerCardOne = randomDeal();
 let dealerCardTwo = randomDeal();
 
+
+// Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
+
 function startingDeal() {
     playerCardOne;
     playerCardTwo;
@@ -150,8 +155,8 @@ function startingDeal() {
     dealerFaceDownSuit.innerHTML = '?'
     addScore(playerHand, playerTotalScore);
     addScore(dealerHand, dealerTotalScore);
-    dealerScore.innerHTML = 'Dealer Score: ?'
-    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
+    dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
+    playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
     // acesHaveChanged = false;
 }
 
@@ -165,17 +170,16 @@ function hitCard() {
     if (hitCardOneRank.innerHTML === '') {
         hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
     } else
-    if (hitCardTwoRank.innerHTML === '') {
-        hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
-    } else
-    if (hitCardThreeRank.innerHTML === '') {
-        hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
-    }
+        if (hitCardTwoRank.innerHTML === '') {
+            hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
+        } else
+            if (hitCardThreeRank.innerHTML === '') {
+                hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
+            }
     addScore(playerHand, playerTotalScore);
-    playerScore.innerHTML = 'Player Score: ' + addScore(playerHand);
+    playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
 }
 
-// Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 
 function dealerTurn() {
     let dealerPlays = randomDeal ();
@@ -183,7 +187,7 @@ function dealerTurn() {
     dealerFaceDownSuit.innerHTML = dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
     playerTotalScore = addScore(playerHand);
-    dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
+    dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
     console.log('number of player cards is ' + playerHand.length);
     console.log('number of dealer cards is ' + dealerHand.length);
     console.log('dealer score is ' + dealerTotalScore);
@@ -191,22 +195,23 @@ function dealerTurn() {
     checkWin();
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
         return checkWin ();
-    }else
-    if ( dealerTotalScore < 17) {
-        dealerPlays;
-        dealerHand.push(dealerPlays);
-        addScore(dealerHand);
-        dealerScore.innerHTML = 'Dealer Score: ' + addScore(dealerHand);
+    } else
+        if ( dealerTotalScore < 17) {
+            dealerPlays;
+            dealerHand.push(dealerPlays);
+            addScore(dealerHand);
+            dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
         if (stayCardOneRank.innerHTML === '') {
             stayCardOneRank.innerHTML = dealerPlays.value, stayCardOneSuit.innerHTML = dealerPlays.suit
             return dealerTurn(); 
-        } else if (stayCardTwoRank.innerHTML === '') {
-            stayCardTwoRank.innerHTML = dealerPlays.value, stayCardTwoSuit.innerHTML = dealerPlays.suit
-            return dealerTurn(); 
-        } else {
-            stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
-        }
-    } 
+        } else 
+            if (stayCardTwoRank.innerHTML === '') {
+                stayCardTwoRank.innerHTML = dealerPlays.value, stayCardTwoSuit.innerHTML = dealerPlays.suit
+                return dealerTurn(); 
+            } else {
+                stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
+            }
+        }    
 }
 
 let dealerTotalScore = 0
@@ -216,8 +221,8 @@ function addScore (hand, total) {
     total = 0
     for (let i = 0; i < hand.length; i++) {
         total += hand[i].score
-        }
-        return total;
+    }
+    return total;
 }
 
 function checkBust () {
