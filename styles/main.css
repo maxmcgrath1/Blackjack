@@ -17,10 +17,18 @@ body {
     height: 60%;
 }
 
+.cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
+    height: 200px;
+    width: 120px;
+    background-color: white;
+    font-size: 35px;
+    display: flex;
+    border: solid black 2px;
+}
+
 .endGameStatus {
     font-size: 50px;
     color: rgb(228, 4, 4);
-    margin-left: 200px;
 }
 
 .rank {
@@ -31,15 +39,6 @@ body {
     height: 65%;
     text-align: center;
     font-size: 60px;
-}
-
-.cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
-    height: 200px;
-    width: 120px;
-    background-color: white;
-    font-size: 35px;
-    display: flex;
-    border: solid black 2px;
 }
 
 .dealerCardHolder {
@@ -53,17 +52,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-h1 {
-    font-size: 50px;
-    color: red;
-    padding: 10px 10px 10px 10px;
-}
-
-h2 {
-    font-size: 30px;
-    padding: 10px 10px 50px 10px
 }
 
 .game {
@@ -87,6 +75,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 290px;
 }
 
 .clickMessage {
@@ -103,16 +92,6 @@ h2 {
 .playerCardHolder {
     display: flex;
     justify-content: center;
-}
-
-.scoreContainer {
-    height: 200px;
-    width: 700px;
-    font-size: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
 }
 
 .restartGame {
@@ -142,6 +121,8 @@ h2 {
     align-items: center;
     font-size: 30px;
     padding-left: 3%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .playerScore {
@@ -149,6 +130,8 @@ h2 {
     align-items: center;
     font-size: 30px;
     padding-left: 3%;
+    text-align: center;
+    font-weight: bold;
 }
 
 .playerCards {

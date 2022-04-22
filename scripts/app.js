@@ -155,8 +155,8 @@ function startingDeal() {
     dealerFaceDownSuit.innerHTML = '?'
     addScore(playerHand, playerTotalScore);
     addScore(dealerHand, dealerTotalScore);
-    dealerScore.innerHTML = 'Dealer <br /> Score: ?'
-    playerScore.innerHTML = 'Player <br /> Score: ' + addScore(playerHand);
+    dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
+    playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
     // acesHaveChanged = false;
 }
 
@@ -177,7 +177,7 @@ function hitCard() {
                 hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
             }
     addScore(playerHand, playerTotalScore);
-    playerScore.innerHTML = 'Player <br /> Score: ' + addScore(playerHand);
+    playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
 }
 
 
@@ -187,7 +187,7 @@ function dealerTurn() {
     dealerFaceDownSuit.innerHTML = dealerCardTwo.suit;
     dealerTotalScore = addScore(dealerHand);
     playerTotalScore = addScore(playerHand);
-    dealerScore.innerHTML = 'Dealer <br /> Score: ' + addScore(dealerHand);
+    dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
     console.log('number of player cards is ' + playerHand.length);
     console.log('number of dealer cards is ' + dealerHand.length);
     console.log('dealer score is ' + dealerTotalScore);
@@ -200,7 +200,7 @@ function dealerTurn() {
             dealerPlays;
             dealerHand.push(dealerPlays);
             addScore(dealerHand);
-            dealerScore.innerHTML = 'Dealer <br /> Score: ' + addScore(dealerHand);
+            dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
         if (stayCardOneRank.innerHTML === '') {
             stayCardOneRank.innerHTML = dealerPlays.value, stayCardOneSuit.innerHTML = dealerPlays.suit
             return dealerTurn(); 
