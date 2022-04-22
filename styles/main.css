@@ -7,7 +7,7 @@ body {
 .buttonContainer {
     display: flex;
     padding-top: 20px;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -33,6 +33,7 @@ body {
 
 .rank {
     height: 35%;
+    padding-left: 5%;
 }
 
 .suit {
