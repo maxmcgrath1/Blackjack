@@ -75,7 +75,7 @@ startGame.addEventListener('click', function () {
 
 // Here I am making arrays of both card values and the suits each value can be attached to
 
-let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 let suits = ['♣', '♦', '♠', '♥']
 
 // This object is going to assign an actual numerical value that can be assigned to a card
@@ -90,10 +90,10 @@ let cardScores = {
     '8': 8,
     '9': 9,
     '10': 10,
-    'Jack': 10,
-    'Queen': 10,
-    'King': 10,
-    'Ace': 11 || 1
+    'J': 10,
+    'Q': 10,
+    'K': 10,
+    'A': 11 || 1
 };
 
 // Here I am creating a deck of 52 objects made of key value pairs from values and suits
