@@ -43,7 +43,12 @@ body {
 
 .dealerCardHolder {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.playerCardHolder {
+    display: flex;
+    justify-content: space-between;
 }
 
 .flex-container {
@@ -63,7 +68,6 @@ body {
 }
 
 .hitMe {
-    padding: 0 10px 10px 10px;
     height: 50px;
     width: 200px;
     font-size: 30px;
@@ -89,11 +93,6 @@ body {
     margin-top: 20%;
 }
 
-.playerCardHolder {
-    display: flex;
-    justify-content: center;
-}
-
 .restartGame {
     height: 50px;
     width: 200px;
@@ -102,7 +101,6 @@ body {
 }
 
 .startGame {
-    text-align: center;
     height: 50px;
     width: 200px;
     font-size: 30px;
