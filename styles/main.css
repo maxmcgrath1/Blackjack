@@ -44,7 +44,7 @@ body {
 
 .dealerCardHolder {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
 .flex-container {
@@ -102,7 +102,7 @@ h2 {
 
 .playerCardHolder {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
 }
 
 .scoreContainer {
@@ -138,18 +138,24 @@ h2 {
 }
 
 .dealerScore {
-    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    padding-left: 3%;
 }
 
 .playerScore {
-    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    padding-left: 3%;
 }
 
 .playerCards {
     display: flex;
     font-weight: bold;
     align-items: center;
-    padding-right: 17px;
+    padding-right: 3%;
     font-size: 25px;
 }
 
@@ -157,6 +163,6 @@ h2 {
     display: flex;
     font-weight: bold;
     align-items: center;
-    padding-right: 15px;
+    padding-right: 3%;
     font-size: 25px;
 }
