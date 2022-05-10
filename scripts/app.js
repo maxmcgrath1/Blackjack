@@ -225,19 +225,6 @@ function addScore (hand, total) {
     return total;
 }
 
-
-// function checkBustWithAces() {
-//     playerTotalScore = addScore(playerHand)
-//     if (playerTotalScore > 21 && !checkForAce() && !acesHaveChanged) {
-//         endGameStatus.innerHTML = 'You bust! Dealer Wins'
-//         changeAceScore ();
-//     }else if (playerTotalScore > 21 && !checkForAce() && acesHaveChanged) {
-//         endGameStatus.innerHTML = 'You bust! Dealer Wins'
-//     } else if (playerTotalScore > 21) {
-//         endGameStatus.innerHTML = 'You bust! Dealer wins'
-//     }
-// }
-
 function checkForBust() {
     playerTotalScore = addScore(playerHand);
     if (playerTotalScore > 21) {
