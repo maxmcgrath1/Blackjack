@@ -157,7 +157,7 @@ function startingDeal() {
     addScore(dealerHand, dealerTotalScore);
     dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
     playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
-    // checkForBust();
+    checkForBust();
 }
 
 // I want to add one card to the player hand, using my random deal function 
