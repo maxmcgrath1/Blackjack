@@ -166,7 +166,7 @@ function hitCard() {
     let playerHitCard = randomDeal();
     playerHand.push(playerHitCard);
     console.log('hitCard player hand is', playerHand)
-    // checkForBust();          
+    checkForBust();          
     if (hitCardOneRank.innerHTML === '') {
         hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
     } else
@@ -232,17 +232,17 @@ function addScore (hand, total) {
 //     }
 // }
 
-function checkBustWithAces() {
-    playerTotalScore = addScore(playerHand)
-    if (playerTotalScore > 21 && !checkForAce() && !acesHaveChanged) {
-        endGameStatus.innerHTML = 'You bust! Dealer Wins'
-        changeAceScore ();
-    }else if (playerTotalScore > 21 && !checkForAce() && acesHaveChanged) {
-        endGameStatus.innerHTML = 'You bust! Dealer Wins'
-    } else if (playerTotalScore > 21) {
-        endGameStatus.innerHTML = 'You bust! Dealer wins'
-    }
-}
+// function checkBustWithAces() {
+//     playerTotalScore = addScore(playerHand)
+//     if (playerTotalScore > 21 && !checkForAce() && !acesHaveChanged) {
+//         endGameStatus.innerHTML = 'You bust! Dealer Wins'
+//         changeAceScore ();
+//     }else if (playerTotalScore > 21 && !checkForAce() && acesHaveChanged) {
+//         endGameStatus.innerHTML = 'You bust! Dealer Wins'
+//     } else if (playerTotalScore > 21) {
+//         endGameStatus.innerHTML = 'You bust! Dealer wins'
+//     }
+// }
 
 function checkForBust() {
     playerTotalScore = addScore(playerHand);
