@@ -225,12 +225,6 @@ function addScore (hand, total) {
     return total;
 }
 
-// function checkBust () {
-//     playerTotalScore = addScore (playerHand);
-//     if (playerTotalScore > 21) {
-//         endGameStatus.innerHTML = 'You bust! Dealer wins'
-//     }
-// }
 
 // function checkBustWithAces() {
 //     playerTotalScore = addScore(playerHand)
