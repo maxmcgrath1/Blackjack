@@ -144,7 +144,6 @@ function startingDeal() {
     playerHand.push(playerCardTwo);
     dealerHand.push(dealerCardOne);
     dealerHand.push(dealerCardTwo);
-    console.log('startingDeal player hand is', playerHand);
     cardOneRank.innerHTML = playerCardOne.value;
     cardOneSuit.innerHTML = playerCardOne.suit;
     cardTwoRank.innerHTML = playerCardTwo.value;
@@ -158,6 +157,7 @@ function startingDeal() {
     dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
     playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
     checkForBust();
+    console.log('startingDeal player hand is', playerTotalScore);
 }
 
 // I want to add one card to the player hand, using my random deal function 
@@ -165,8 +165,6 @@ function startingDeal() {
 function hitCard() {
     let playerHitCard = randomDeal();
     playerHand.push(playerHitCard);
-    console.log('hitCard player hand is', playerHand)
-    checkForBust();          
     if (hitCardOneRank.innerHTML === '') {
         hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
     } else
@@ -177,7 +175,9 @@ function hitCard() {
         hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
     }
     addScore(playerHand, playerTotalScore);
+    checkForBust();          
     playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
+    console.log('hitCard player hand is', playerTotalScore)
 }
 
 
@@ -231,7 +231,9 @@ function checkForBust() {
         checkForAce();
         if (checkForAce()) {
             changeAceScore();
-            playerTotalScore = addScore(playerHand);
+            if (playerTotalScore > 21) {
+                endGameStatus.innerHTML = 'You bust! Dealer wins'
+            }
         } else endGameStatus.innerHTML = 'You bust! Dealer wins'
     }
 }
@@ -244,13 +246,14 @@ function checkForAce () {
     return false;
 }
 
-function changeAceScore () {  
+function changeAceScore () { 
     for (let i=0; i < playerHand.length; i++) {
         if (playerHand[i].value === 'A') {
             playerHand[i].score = 1
-        }
+        } 
     } acesHaveChanged = true;
-    console.log(playerHand)
+    playerTotalScore = addScore(playerHand);
+    console.log(addScore(playerHand))
     console.log('acesHaveChanged score is ' + playerTotalScore)
 }
 
