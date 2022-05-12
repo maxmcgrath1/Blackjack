@@ -166,12 +166,12 @@ function hitCard() {
     if (hitCardOneRank.innerHTML === '') {
         hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
     } else
-    if (hitCardTwoRank.innerHTML === '') {
+        if (hitCardTwoRank.innerHTML === '') {
         hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
-    } else
-    if (hitCardThreeRank.innerHTML === '') {
-        hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
-    }
+        } else
+            if (hitCardThreeRank.innerHTML === '') {
+            hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
+            }
     addScore(playerHand, playerTotalScore);
     checkForBust();          
     playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
