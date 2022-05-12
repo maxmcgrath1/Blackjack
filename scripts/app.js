@@ -1,5 +1,3 @@
-// Here I am assigning variables to elements from the HTML
-
 // These are my displayed messages
 let welcomeMessage = document.querySelector('.welcomeMessage');
 let clickMessage = document.querySelector('.clickMessage');
