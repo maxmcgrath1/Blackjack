@@ -146,7 +146,7 @@ function startingDeal() {
     cardOneSuit.innerHTML = playerCardOne.suit;
     cardTwoRank.innerHTML = playerCardTwo.value;
     cardTwoSuit.innerHTML = playerCardTwo.suit;
-    console.log('startingDeal dealer hand is', dealerHand);
+    // console.log('startingDeal dealer hand is', dealerHand);
     dealerFaceUpRank.innerHTML = dealerCardOne.value;
     dealerFaceUpSuit.innerHTML = dealerCardOne.suit;
     dealerFaceDownSuit.innerHTML = '?'
@@ -155,7 +155,7 @@ function startingDeal() {
     dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
     playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
     checkForBust();
-    console.log('startingDeal player hand is', playerTotalScore);
+    // console.log('startingDeal player hand is', playerTotalScore);
 }
 
 // I want to add one card to the player hand, using my random deal function 
