@@ -256,6 +256,13 @@ function checkForAce() {
     }
     return false;
 }
+function checkForAceDealer() {  
+    for (let i=0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value === 'A')
+        return true;
+    }
+    return false;
+}
 
 function changeAceScore() { 
     for (let i=0; i < playerHand.length; i++) {
