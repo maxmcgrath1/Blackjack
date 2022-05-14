@@ -237,12 +237,12 @@ function checkForBust() {
 }
 
 function checkForBustDealer() {
-    playerTotalScore = addScore(playerHand);
-    if (playerTotalScore > 21) {
+    dealerTotalScore = addScore(dealerHand);
+    if (dealerTotalScore > 21) {
         checkForAce();
         if (checkForAce()) {
             changeAceScore();
-            if (playerTotalScore > 21) {
+            if (dealerTotalScore > 21) {
                 endGameStatus.innerHTML = 'You bust! Dealer wins'
             }
         } else endGameStatus.innerHTML = 'You bust! Dealer wins'
