@@ -243,9 +243,9 @@ function checkForBustDealer() {
         if (checkForAceDealer()) {
             changeAceScoreDealer();
             if (dealerTotalScore > 21) {
-                endGameStatus.innerHTML = 'You bust! Dealer wins'
+                endGameStatus.innerHTML = 'Dealer busts, you win!'
             }
-        } else endGameStatus.innerHTML = 'You bust! Dealer wins'
+        } else endGameStatus.innerHTML = 'Dealer busts, you win!'
     }
 }
 
@@ -274,15 +274,16 @@ function changeAceScore() {
     console.log(addScore(playerHand))
     console.log('acesHaveChanged score is ' + playerTotalScore)
 }
+
 function changeAceScoreDealer() { 
-    for (let i=0; i < playerHand.length; i++) {
-        if (playerHand[i].value === 'A') {
-            playerHand[i].score = 1
+    for (let i=0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value === 'A') {
+            dealerHand[i].score = 1
         } 
     } acesHaveChanged = true;
-    playerTotalScore = addScore(playerHand);
-    console.log(addScore(playerHand))
-    console.log('acesHaveChanged score is ' + playerTotalScore)
+    dealerTotalScore = addScore(dealerHand);
+    console.log(addScore(dealerHand))
+    console.log('acesHaveChangedDealer score is ' + dealerTotalScore)
 }
 
 function checkWin() {
