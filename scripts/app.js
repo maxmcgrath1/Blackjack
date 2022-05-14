@@ -236,6 +236,19 @@ function checkForBust() {
     }
 }
 
+function checkForBustDealer() {
+    playerTotalScore = addScore(playerHand);
+    if (playerTotalScore > 21) {
+        checkForAce();
+        if (checkForAce()) {
+            changeAceScore();
+            if (playerTotalScore > 21) {
+                endGameStatus.innerHTML = 'You bust! Dealer wins'
+            }
+        } else endGameStatus.innerHTML = 'You bust! Dealer wins'
+    }
+}
+
 function checkForAce() {  
     for (let i=0; i < playerHand.length; i++) {
         if (playerHand[i].value === 'A')
