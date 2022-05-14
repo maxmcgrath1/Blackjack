@@ -236,7 +236,7 @@ function checkForBust() {
     }
 }
 
-function checkForAce () {  
+function checkForAce() {  
     for (let i=0; i < playerHand.length; i++) {
         if (playerHand[i].value === 'A')
         return true;
@@ -244,7 +244,7 @@ function checkForAce () {
     return false;
 }
 
-function changeAceScore () { 
+function changeAceScore() { 
     for (let i=0; i < playerHand.length; i++) {
         if (playerHand[i].value === 'A') {
             playerHand[i].score = 1
