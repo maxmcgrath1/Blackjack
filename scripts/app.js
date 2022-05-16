@@ -60,6 +60,10 @@ let stayCardTwoSuit = document.querySelector('.stayCardTwo .suit');
 let stayCardThreeRank = document.querySelector('.stayCardThree .rank');
 let stayCardThreeSuit = document.querySelector('.stayCardThree .suit');
 
+// These are inital game states
+hitMe.disabled = true;
+stay.disabled = true;
+
 let gameActive = true;
 
 let acesHaveChanged = false;
@@ -139,6 +143,8 @@ let dealerCardTwo = randomDeal();
 
 function startingDeal() {
     startGame.disabled = true;
+    hitMe.disabled = false;
+    stay.disabled = false;
     playerCardOne;
     playerCardTwo;
     dealerCardOne;
