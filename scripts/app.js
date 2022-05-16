@@ -63,6 +63,10 @@ let stayCardThreeSuit = document.querySelector('.stayCardThree .suit');
 let gameActive = true;
 
 let acesHaveChanged = false;
+let acesHaveChangedDealer = false;
+
+let dealerTotalScore = 0
+let playerTotalScore = 0
 
 // Here I am making a button that clears the welcome messages and starts the game
 
@@ -155,7 +159,7 @@ function startingDeal() {
     dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
     playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
     checkForBust();
-    // console.log('startingDeal player hand is', playerTotalScore);
+    console.log('startingDeal player score is', playerTotalScore);
 }
 
 // I want to add one card to the player hand, using my random deal function 
@@ -175,26 +179,23 @@ function hitCard() {
     addScore(playerHand, playerTotalScore);
     checkForBust();          
     playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
-    console.log('hitCard player hand is', playerTotalScore)
+    console.log('hitCard player score is', playerTotalScore)
 }
 
 
 function dealerTurn() {
-    let dealerPlays = randomDeal ();
+    let dealerPlays = randomDeal();
     dealerFaceDownRank.innerHTML = dealerCardTwo.value;
     dealerFaceDownSuit.innerHTML = dealerCardTwo.suit;
-    dealerTotalScore = addScore(dealerHand);
-    playerTotalScore = addScore(playerHand);
+    addScore(dealerHand);
     dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
-    console.log('number of player cards is ' + playerHand.length);
-    console.log('number of dealer cards is ' + dealerHand.length);
     console.log('dealerTurn dealer score is ' + dealerTotalScore);
     console.log('dealerTurn player score is ' + playerTotalScore);
     checkWin();
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
         return checkWin ();
     } else
-        if ( dealerTotalScore < 17) {
+        if (dealerTotalScore < 17) {
             dealerPlays;
             dealerHand.push(dealerPlays);
             addScore(dealerHand);
@@ -208,13 +209,10 @@ function dealerTurn() {
                 return dealerTurn(); 
             } else {
                 stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
+                return dealerTurn();
             }
-        }
-    checkForBustDealer    
+        }  
 }
-
-let dealerTotalScore = 0
-let playerTotalScore = 0
 
 function addScore (hand, total) {
     total = 0
@@ -244,9 +242,9 @@ function checkForBustDealer() {
         if (checkForAceDealer()) {
             changeAceScoreDealer();
             if (dealerTotalScore > 21) {
-                endGameStatus.innerHTML = 'Dealer busts, you win!'
+                endGameStatus.innerHTML = 'Dealer Busts, You Win!'
             }
-        } else endGameStatus.innerHTML = 'Dealer busts, you win!'
+        } else endGameStatus.innerHTML = 'Dealer Busts, You Win!'
     }
 }
 
@@ -281,7 +279,7 @@ function changeAceScoreDealer() {
         if (dealerHand[i].value === 'A') {
             dealerHand[i].score = 1
         } 
-    } acesHaveChanged = true;
+    } acesHaveChangedDealer = true;
     dealerTotalScore = addScore(dealerHand);
     console.log(addScore(dealerHand))
     console.log('acesHaveChangedDealer score is ' + dealerTotalScore)
@@ -294,7 +292,7 @@ function checkWin() {
     endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER!'
     } else
         if (dealerTotalScore > 21) {
-            endGameStatus.innerHTML = 'Dealer Busts! You Win!'
+            checkForBustDealer();
         } else
             if (dealerTotalScore > playerTotalScore) {
                 endGameStatus.innerHTML = 'Dealer Wins. Better Luck Next Time!'
