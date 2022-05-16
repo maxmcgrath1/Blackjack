@@ -184,6 +184,7 @@ function hitCard() {
 
 
 function dealerTurn() {
+    hitMe.disabled = true
     let dealerPlays = randomDeal();
     dealerFaceDownRank.innerHTML = dealerCardTwo.value;
     dealerFaceDownSuit.innerHTML = dealerCardTwo.suit;
