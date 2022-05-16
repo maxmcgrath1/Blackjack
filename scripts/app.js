@@ -64,8 +64,6 @@ let stayCardThreeSuit = document.querySelector('.stayCardThree .suit');
 hitMe.disabled = true;
 stay.disabled = true;
 
-let gameActive = true;
-
 let acesHaveChanged = false;
 let acesHaveChangedDealer = false;
 
@@ -149,6 +147,7 @@ function startingDeal() {
     playerCardTwo;
     dealerCardOne;
     dealerCardTwo;
+    console.log(deck)
     playerHand.push(playerCardOne);
     playerHand.push(playerCardTwo);
     dealerHand.push(dealerCardOne);
