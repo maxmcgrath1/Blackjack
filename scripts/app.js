@@ -209,7 +209,8 @@ function dealerTurn() {
             } else {
                 stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
             }
-        }    
+        }
+    checkForBustDealer    
 }
 
 let dealerTotalScore = 0
