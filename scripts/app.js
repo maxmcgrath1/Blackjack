@@ -238,9 +238,9 @@ function checkForBust() {
         if (checkForAce()) {
             changeAceScore();
             if (playerTotalScore > 21) {
-                endGameStatus.innerHTML = 'You bust! Dealer wins'
+                endGameStatus.innerHTML = 'You Bust! Dealer Wins'
             }
-        } else endGameStatus.innerHTML = 'You bust! Dealer wins'
+        } else endGameStatus.innerHTML = 'You Bust! Dealer Wins'
     }
 }
 
