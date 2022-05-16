@@ -138,6 +138,7 @@ let dealerCardTwo = randomDeal();
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 
 function startingDeal() {
+    startGame.disabled = true;
     playerCardOne;
     playerCardTwo;
     dealerCardOne;
