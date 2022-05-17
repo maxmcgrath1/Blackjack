@@ -21,6 +21,8 @@ let cardOneSuit = document.querySelector('.cardOne .suit');
 let cardTwoRank = document.querySelector('.cardTwo .rank');
 let cardTwoSuit = document.querySelector('.cardTwo .suit');
 
+cardOne.style.visibility = 'hidden';
+cardTwo.style.visibility = 'hidden';
 
 // These are the initial dealer cards
 let dealerFaceUp = document.querySelector('.dealerFaceUp');
@@ -31,6 +33,9 @@ let dealerFaceUpSuit = document.querySelector('.dealerFaceUp .suit');
 
 let dealerFaceDownRank = document.querySelector('.dealerFaceDown .rank');
 let dealerFaceDownSuit = document.querySelector('.dealerFaceDown .suit');
+
+dealerFaceUp.style.visibility = 'hidden';
+dealerFaceDown.style.visibility = 'hidden';
 
 // These are for if a player wants to hit
 let hitCardOne = document.querySelector('.hitCardOne');
@@ -143,6 +148,10 @@ function startingDeal() {
     startGame.disabled = true;
     hitMe.disabled = false;
     stay.disabled = false;
+    cardOne.style.visibility = 'visible';
+    cardTwo.style.visibility = 'visible';
+    dealerFaceUp.style.visibility = 'visible';
+    dealerFaceDown.style.visibility = 'visible';
     playerCardOne;
     playerCardTwo;
     dealerCardOne;
