@@ -51,6 +51,10 @@ let hitCardTwoSuit = document.querySelector('.hitCardTwo .suit');
 let hitCardThreeRank = document.querySelector('.hitCardThree .rank');
 let hitCardThreeSuit = document.querySelector('.hitCardThree .suit');
 
+hitCardOne.style.visibility = 'hidden';
+hitCardTwo.style.visibility = 'hidden';
+hitCardThree.style.visibility = 'hidden';
+
 // These are for when a player stays and it becomes the dealer's turn
 let stayCardOne = document.querySelector('.stayCardOne');
 let stayCardTwo = document.querySelector('.stayCardTwo');
@@ -64,6 +68,10 @@ let stayCardTwoSuit = document.querySelector('.stayCardTwo .suit');
 
 let stayCardThreeRank = document.querySelector('.stayCardThree .rank');
 let stayCardThreeSuit = document.querySelector('.stayCardThree .suit');
+
+stayCardOne.style.visibility = 'hidden';
+stayCardTwo.style.visibility = 'hidden';
+stayCardThree.style.visibility = 'hidden';
 
 // These are inital game states
 hitMe.disabled = true;
@@ -184,12 +192,15 @@ function hitCard() {
     playerHand.push(playerHitCard);
     if (hitCardOneRank.innerHTML === '') {
         hitCardOneRank.innerHTML = playerHitCard.value, hitCardOneSuit.innerHTML = playerHitCard.suit;
+        hitCardOne.style.visibility = 'visible';
     } else
         if (hitCardTwoRank.innerHTML === '') {
         hitCardTwoRank.innerHTML = playerHitCard.value, hitCardTwoSuit.innerHTML = playerHitCard.suit;
+        hitCardTwo.style.visibility = 'visible';
         } else
             if (hitCardThreeRank.innerHTML === '') {
             hitCardThreeRank.innerHTML = playerHitCard.value, hitCardThreeSuit.innerHTML = playerHitCard.suit;
+            hitCardThree.style.visibility = 'visible';
             }
     addScore(playerHand, playerTotalScore);
     checkForBust();          
