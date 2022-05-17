@@ -164,7 +164,6 @@ function startingDeal() {
     playerCardTwo;
     dealerCardOne;
     dealerCardTwo;
-    console.log(deck)
     playerHand.push(playerCardOne);
     playerHand.push(playerCardTwo);
     dealerHand.push(dealerCardOne);
@@ -173,7 +172,6 @@ function startingDeal() {
     cardOneSuit.innerHTML = playerCardOne.suit;
     cardTwoRank.innerHTML = playerCardTwo.value;
     cardTwoSuit.innerHTML = playerCardTwo.suit;
-    // console.log('startingDeal dealer hand is', dealerHand);
     dealerFaceUpRank.innerHTML = dealerCardOne.value;
     dealerFaceUpSuit.innerHTML = dealerCardOne.suit;
     dealerFaceDownSuit.innerHTML = '?'
@@ -215,10 +213,7 @@ function dealerTurn() {
     let dealerPlays = randomDeal();
     dealerFaceDownRank.innerHTML = dealerCardTwo.value;
     dealerFaceDownSuit.innerHTML = dealerCardTwo.suit;
-    addScore(dealerHand);
     dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
-    console.log('dealerTurn dealer score is ' + dealerTotalScore);
-    console.log('dealerTurn player score is ' + playerTotalScore);
     checkWin();
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
         return checkWin ();
@@ -230,16 +225,22 @@ function dealerTurn() {
             dealerScore.innerHTML = 'Dealer <br /> Score: <br />' + addScore(dealerHand);
         if (stayCardOneRank.innerHTML === '') {
             stayCardOneRank.innerHTML = dealerPlays.value, stayCardOneSuit.innerHTML = dealerPlays.suit
+            stayCardOne.style.visibility = 'visible';
             return dealerTurn(); 
         } else 
             if (stayCardTwoRank.innerHTML === '') {
                 stayCardTwoRank.innerHTML = dealerPlays.value, stayCardTwoSuit.innerHTML = dealerPlays.suit
+                stayCardTwo.style.visibility = 'visible';
                 return dealerTurn(); 
             } else {
                 stayCardThreeRank.innerHTML = dealerPlays.value, stayCardThreeSuit.innerHTML = dealerPlays.suit
+                stayCardThree.style.visibility = 'visible';
                 return dealerTurn();
             }
         }  
+    addScore(dealerHand);
+    console.log('dealerTurn dealer score is ' + dealerTotalScore);
+    console.log('dealerTurn player score is ' + playerTotalScore);
 }
 
 function addScore (hand, total) {
@@ -258,8 +259,12 @@ function checkForBust() {
             changeAceScore();
             if (playerTotalScore > 21) {
                 endGameStatus.innerHTML = 'You Bust! Dealer Wins'
+                // hitMe.disabled = true;
+                // stay.disabled = true;
             }
         } else endGameStatus.innerHTML = 'You Bust! Dealer Wins'
+            hitMe.disabled = true;
+            stay.disabled = true;
     }
 }
 
@@ -317,7 +322,7 @@ function checkWin() {
     dealerTotalScore = addScore(dealerHand)
     playerTotalScore = addScore(playerHand)
     if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
-    endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER!'
+        endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER!'
     } else
         if (dealerTotalScore > 21) {
             checkForBustDealer();
