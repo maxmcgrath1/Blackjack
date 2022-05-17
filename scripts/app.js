@@ -259,12 +259,15 @@ function checkForBust() {
             changeAceScore();
             if (playerTotalScore > 21) {
                 endGameStatus.innerHTML = 'You Bust! Dealer Wins'
-                // hitMe.disabled = true;
-                // stay.disabled = true;
+                hitMe.disabled = true;
+                stay.disabled = true;
             }
-        } else endGameStatus.innerHTML = 'You Bust! Dealer Wins'
-            hitMe.disabled = true;
-            stay.disabled = true;
+        } else 
+            if (!checkForAce()) {
+                endGameStatus.innerHTML = 'You Bust! Dealer Wins'
+                hitMe.disabled = true;
+                stay.disabled = true;
+            }
     }
 }
 
