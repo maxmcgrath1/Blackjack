@@ -7,7 +7,7 @@
 * A standard 52 card deck will be used
 * All numbered cards hold a value of that number
 * Face cards hold a value of 10 
-* Aces can be either 1 or 11, this is up to the player
+* Aces can be either 11 or 1, depending on if the Ace will cause the player to bust or not.
     --For example: If the player has a hand of 15, chooses to hit, and receives an Ace, the value will be 1 instead of 11,
       as an 11 would cause a bust.
 

@@ -180,7 +180,6 @@ function startingDeal() {
     dealerScore.innerHTML = 'Dealer <br /> Score: <br /> ?'
     playerScore.innerHTML = 'Player <br /> Score: <br /> ' + addScore(playerHand);
     checkForBust();
-    console.log('startingDeal player score is', playerTotalScore);
 }
 
 // I want to add one card to the player hand, using my random deal function 
@@ -203,7 +202,6 @@ function hitCard() {
     addScore(playerHand, playerTotalScore);
     checkForBust();          
     playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
-    console.log('hitCard player score is', playerTotalScore)
 }
 
 
@@ -239,8 +237,6 @@ function dealerTurn() {
             }
         }  
     addScore(dealerHand);
-    console.log('dealerTurn dealer score is ' + dealerTotalScore);
-    console.log('dealerTurn player score is ' + playerTotalScore);
 }
 
 function addScore (hand, total) {
@@ -306,8 +302,6 @@ function changeAceScore() {
         } 
     } acesHaveChanged = true;
     playerTotalScore = addScore(playerHand);
-    console.log(addScore(playerHand))
-    console.log('acesHaveChanged score is ' + playerTotalScore)
 }
 
 function changeAceScoreDealer() { 
@@ -317,8 +311,6 @@ function changeAceScoreDealer() {
         } 
     } acesHaveChangedDealer = true;
     dealerTotalScore = addScore(dealerHand);
-    console.log(addScore(dealerHand))
-    console.log('acesHaveChangedDealer score is ' + dealerTotalScore)
 }
 
 function checkWin() {
