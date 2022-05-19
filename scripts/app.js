@@ -137,11 +137,19 @@ function createDeck() {
 createDeck();
 
 // Here I am creating a function that will deal a random card from the deck
-
 function randomDeal() {
     let deal = Math.floor(deck.length * Math.random());
     return deck[deal];
 };
+
+// My adding score function
+function addScore (hand, total) {
+    total = 0
+    for (let i = 0; i < hand.length; i++) {
+        total += hand[i].score
+    }
+    return total;
+}
 
 // I am making the player and dealer hands both empty arrays
 
@@ -241,14 +249,6 @@ function dealerTurn() {
             }
         }  
     addScore(dealerHand);
-}
-
-function addScore (hand, total) {
-    total = 0
-    for (let i = 0; i < hand.length; i++) {
-        total += hand[i].score
-    }
-    return total;
 }
 
 function checkForBust() {
