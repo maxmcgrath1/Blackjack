@@ -83,12 +83,16 @@ let acesHaveChangedDealer = false;
 let dealerTotalScore = 0
 let playerTotalScore = 0
 
-// Here I am making a button that clears the welcome messages and starts the game
+// These are my button event listeners
 
 startGame.addEventListener('click', function () {
     welcomeMessage.innerHTML = '';
     clickMessage.innerHTML = '';
 })
+
+startGame.addEventListener('click', startingDeal, {once : true}); 
+hitMe.addEventListener('click', hitCard);
+stay.addEventListener('click', dealerTurn);
 
 // Here I am making arrays of both card values and the suits each value can be attached to
 
@@ -332,7 +336,3 @@ function checkWin() {
                         endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
                     }               
 }
-
-startGame.addEventListener('click', startingDeal, {once : true}); 
-hitMe.addEventListener('click', hitCard);
-stay.addEventListener('click', dealerTurn);
