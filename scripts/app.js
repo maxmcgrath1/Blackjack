@@ -195,7 +195,6 @@ function startingDeal() {
 }
 
 // I want to add one card to the player hand, using my random deal function 
-
 function hitCard() {
     let playerHitCard = randomDeal();
     playerHand.push(playerHitCard);
@@ -216,7 +215,7 @@ function hitCard() {
     playerScore.innerHTML = 'Player <br /> Score: <br />' + addScore(playerHand);
 }
 
-
+// Dealer's turn-takes place when stay is clicked
 function dealerTurn() {
     hitMe.disabled = true;
     stay.disabled = true;
@@ -251,6 +250,25 @@ function dealerTurn() {
     addScore(dealerHand);
 }
 
+function checkForAce() {  
+    for (let i=0; i < playerHand.length; i++) {
+        if (playerHand[i].value === 'A')
+        return true;
+    }
+    return false;
+}
+
+function changeAceScore() { 
+    for (let i=0; i < playerHand.length; i++) {
+        if (playerHand[i].value === 'A') {
+            playerHand[i].score = 1
+        } 
+    } acesHaveChanged = true;
+    playerTotalScore = addScore(playerHand);
+}
+
+
+
 function checkForBust() {
     playerTotalScore = addScore(playerHand);
     if (playerTotalScore > 21) {
@@ -271,6 +289,23 @@ function checkForBust() {
     }
 }
 
+function checkForAceDealer() {  
+    for (let i=0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value === 'A')
+        return true;
+    }
+    return false;
+}
+
+function changeAceScoreDealer() { 
+    for (let i=0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value === 'A') {
+            dealerHand[i].score = 1
+        } 
+    } acesHaveChangedDealer = true;
+    dealerTotalScore = addScore(dealerHand);
+}
+
 function checkForBustDealer() {
     dealerTotalScore = addScore(dealerHand);
     if (dealerTotalScore > 21) {
@@ -284,39 +319,7 @@ function checkForBustDealer() {
     }
 }
 
-function checkForAce() {  
-    for (let i=0; i < playerHand.length; i++) {
-        if (playerHand[i].value === 'A')
-        return true;
-    }
-    return false;
-}
-function checkForAceDealer() {  
-    for (let i=0; i < dealerHand.length; i++) {
-        if (dealerHand[i].value === 'A')
-        return true;
-    }
-    return false;
-}
-
-function changeAceScore() { 
-    for (let i=0; i < playerHand.length; i++) {
-        if (playerHand[i].value === 'A') {
-            playerHand[i].score = 1
-        } 
-    } acesHaveChanged = true;
-    playerTotalScore = addScore(playerHand);
-}
-
-function changeAceScoreDealer() { 
-    for (let i=0; i < dealerHand.length; i++) {
-        if (dealerHand[i].value === 'A') {
-            dealerHand[i].score = 1
-        } 
-    } acesHaveChangedDealer = true;
-    dealerTotalScore = addScore(dealerHand);
-}
-
+//The win conditions other than a player bust
 function checkWin() {
     dealerTotalScore = addScore(dealerHand)
     playerTotalScore = addScore(playerHand)
