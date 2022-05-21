@@ -157,6 +157,43 @@ let playerCardTwo = randomDeal();
 let dealerCardOne = randomDeal();
 let dealerCardTwo = randomDeal();
 
+// Functions for checking for an ace/busting for player
+function checkForAce() {  
+    for (let i=0; i < playerHand.length; i++) {
+        if (playerHand[i].value === 'A')
+        return true;
+    }
+    return false;
+}
+
+function changeAceScore() { 
+    for (let i=0; i < playerHand.length; i++) {
+        if (playerHand[i].value === 'A') {
+            playerHand[i].score = 1
+        } 
+    } acesHaveChanged = true;
+    playerTotalScore = addScore(playerHand);
+}
+
+function checkForBust() {
+    playerTotalScore = addScore(playerHand);
+    if (playerTotalScore > 21) {
+        checkForAce();
+        if (checkForAce()) {
+            changeAceScore();
+            if (playerTotalScore > 21) {
+                endGameStatus.innerHTML = 'You Bust! Dealer Wins'
+                hitMe.disabled = true;
+                stay.disabled = true;
+            }
+        } else 
+            if (!checkForAce()) {
+                endGameStatus.innerHTML = 'You Bust! Dealer Wins'
+                hitMe.disabled = true;
+                stay.disabled = true;
+            }
+    }
+}
 
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 function startingDeal() {
@@ -245,42 +282,7 @@ function dealerTurn() {
     addScore(dealerHand);
 }
 
-function checkForAce() {  
-    for (let i=0; i < playerHand.length; i++) {
-        if (playerHand[i].value === 'A')
-        return true;
-    }
-    return false;
-}
 
-function changeAceScore() { 
-    for (let i=0; i < playerHand.length; i++) {
-        if (playerHand[i].value === 'A') {
-            playerHand[i].score = 1
-        } 
-    } acesHaveChanged = true;
-    playerTotalScore = addScore(playerHand);
-}
-
-function checkForBust() {
-    playerTotalScore = addScore(playerHand);
-    if (playerTotalScore > 21) {
-        checkForAce();
-        if (checkForAce()) {
-            changeAceScore();
-            if (playerTotalScore > 21) {
-                endGameStatus.innerHTML = 'You Bust! Dealer Wins'
-                hitMe.disabled = true;
-                stay.disabled = true;
-            }
-        } else 
-            if (!checkForAce()) {
-                endGameStatus.innerHTML = 'You Bust! Dealer Wins'
-                hitMe.disabled = true;
-                stay.disabled = true;
-            }
-    }
-}
 
 function checkForAceDealer() {  
     for (let i=0; i < dealerHand.length; i++) {
