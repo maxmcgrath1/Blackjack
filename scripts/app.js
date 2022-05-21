@@ -157,7 +157,7 @@ let playerCardTwo = randomDeal();
 let dealerCardOne = randomDeal();
 let dealerCardTwo = randomDeal();
 
-// Functions for checking for an ace/busting for player
+// Functions for checking for an ace/busting for the player
 function checkForAce() {  
     for (let i=0; i < playerHand.length; i++) {
         if (playerHand[i].value === 'A')
@@ -192,6 +192,37 @@ function checkForBust() {
                 hitMe.disabled = true;
                 stay.disabled = true;
             }
+    }
+}
+
+// Functions for checking for an ace/busting for the dealer
+function checkForAceDealer() {  
+    for (let i=0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value === 'A')
+        return true;
+    }
+    return false;
+}
+
+function changeAceScoreDealer() { 
+    for (let i=0; i < dealerHand.length; i++) {
+        if (dealerHand[i].value === 'A') {
+            dealerHand[i].score = 1
+        } 
+    } acesHaveChangedDealer = true;
+    dealerTotalScore = addScore(dealerHand);
+}
+
+function checkForBustDealer() {
+    dealerTotalScore = addScore(dealerHand);
+    if (dealerTotalScore > 21) {
+        checkForAceDealer();
+        if (checkForAceDealer()) {
+            changeAceScoreDealer();
+            if (dealerTotalScore > 21) {
+                endGameStatus.innerHTML = 'Dealer Busts, You Win!'
+            }
+        } else endGameStatus.innerHTML = 'Dealer Busts, You Win!'
     }
 }
 
@@ -280,38 +311,6 @@ function dealerTurn() {
             }
         }  
     addScore(dealerHand);
-}
-
-
-
-function checkForAceDealer() {  
-    for (let i=0; i < dealerHand.length; i++) {
-        if (dealerHand[i].value === 'A')
-        return true;
-    }
-    return false;
-}
-
-function changeAceScoreDealer() { 
-    for (let i=0; i < dealerHand.length; i++) {
-        if (dealerHand[i].value === 'A') {
-            dealerHand[i].score = 1
-        } 
-    } acesHaveChangedDealer = true;
-    dealerTotalScore = addScore(dealerHand);
-}
-
-function checkForBustDealer() {
-    dealerTotalScore = addScore(dealerHand);
-    if (dealerTotalScore > 21) {
-        checkForAceDealer();
-        if (checkForAceDealer()) {
-            changeAceScoreDealer();
-            if (dealerTotalScore > 21) {
-                endGameStatus.innerHTML = 'Dealer Busts, You Win!'
-            }
-        } else endGameStatus.innerHTML = 'Dealer Busts, You Win!'
-    }
 }
 
 //The win conditions other than a player bust
