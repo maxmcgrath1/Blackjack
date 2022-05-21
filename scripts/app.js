@@ -84,7 +84,6 @@ let dealerTotalScore = 0
 let playerTotalScore = 0
 
 // These are my button event listeners
-
 startGame.addEventListener('click', function () {
     welcomeMessage.innerHTML = '';
     clickMessage.innerHTML = '';
@@ -95,12 +94,10 @@ hitMe.addEventListener('click', hitCard);
 stay.addEventListener('click', dealerTurn);
 
 // Here I am making arrays of both card values and the suits each value can be attached to
-
 let values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 let suits = ['♣', '♦', '♠', '♥']
 
 // This object is going to assign an actual numerical value that can be assigned to a card
-
 let cardScores = {
     '2': 2,
     '3': 3,
@@ -118,7 +115,6 @@ let cardScores = {
 };
 
 // Here I am creating a deck of 52 objects made of key value pairs from values and suits
-
 let deck = [];
 
 function createDeck() {
@@ -163,7 +159,6 @@ let dealerCardTwo = randomDeal();
 
 
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
-
 function startingDeal() {
     startGame.disabled = true;
     hitMe.disabled = false;
@@ -266,8 +261,6 @@ function changeAceScore() {
     } acesHaveChanged = true;
     playerTotalScore = addScore(playerHand);
 }
-
-
 
 function checkForBust() {
     playerTotalScore = addScore(playerHand);
