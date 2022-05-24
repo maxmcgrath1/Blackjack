@@ -59,10 +59,6 @@ let stayCardTwoSuit = document.querySelector('.stayCardTwo .suit');
 let stayCardThreeRank = document.querySelector('.stayCardThree .rank');
 let stayCardThreeSuit = document.querySelector('.stayCardThree .suit');
 
-stayCardOne.style.visibility = 'hidden';
-stayCardTwo.style.visibility = 'hidden';
-stayCardThree.style.visibility = 'hidden';
-
 // These are inital game states
 hitMe.disabled = true;
 stay.disabled = true;
@@ -78,6 +74,9 @@ hitCardThree.style.visibility = 'hidden';
 
 dealerFaceUp.style.visibility = 'hidden';
 dealerFaceDown.style.visibility = 'hidden';
+stayCardOne.style.visibility = 'hidden';
+stayCardTwo.style.visibility = 'hidden';
+stayCardThree.style.visibility = 'hidden';
 
 let dealerTotalScore = 0
 let playerTotalScore = 0
