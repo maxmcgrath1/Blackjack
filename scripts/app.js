@@ -112,7 +112,7 @@ let cardScores = {
     'A': 11 || 1
 };
 
-// Here I am creating a deck of 52 objects made of key value pairs from values and suits
+// Creating a deck of 52 objects (cards)
 let deck = [];
 
 function createDeck() {
