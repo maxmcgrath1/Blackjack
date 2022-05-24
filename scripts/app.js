@@ -51,10 +51,6 @@ let hitCardTwoSuit = document.querySelector('.hitCardTwo .suit');
 let hitCardThreeRank = document.querySelector('.hitCardThree .rank');
 let hitCardThreeSuit = document.querySelector('.hitCardThree .suit');
 
-hitCardOne.style.visibility = 'hidden';
-hitCardTwo.style.visibility = 'hidden';
-hitCardThree.style.visibility = 'hidden';
-
 // These are for when a player stays and it becomes the dealer's turn
 let stayCardOne = document.querySelector('.stayCardOne');
 let stayCardTwo = document.querySelector('.stayCardTwo');
@@ -79,6 +75,10 @@ stay.disabled = true;
 
 let acesHaveChanged = false;
 let acesHaveChangedDealer = false;
+
+hitCardOne.style.visibility = 'hidden';
+hitCardTwo.style.visibility = 'hidden';
+hitCardThree.style.visibility = 'hidden';
 
 let dealerTotalScore = 0
 let playerTotalScore = 0
