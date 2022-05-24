@@ -31,9 +31,6 @@ let dealerFaceUpSuit = document.querySelector('.dealerFaceUp .suit');
 let dealerFaceDownRank = document.querySelector('.dealerFaceDown .rank');
 let dealerFaceDownSuit = document.querySelector('.dealerFaceDown .suit');
 
-dealerFaceUp.style.visibility = 'hidden';
-dealerFaceDown.style.visibility = 'hidden';
-
 // These are for if a player wants to hit
 let hitCardOne = document.querySelector('.hitCardOne');
 let hitCardTwo = document.querySelector('.hitCardTwo');
@@ -78,6 +75,9 @@ cardTwo.style.visibility = 'hidden';
 hitCardOne.style.visibility = 'hidden';
 hitCardTwo.style.visibility = 'hidden';
 hitCardThree.style.visibility = 'hidden';
+
+dealerFaceUp.style.visibility = 'hidden';
+dealerFaceDown.style.visibility = 'hidden';
 
 let dealerTotalScore = 0
 let playerTotalScore = 0
