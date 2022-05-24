@@ -146,7 +146,6 @@ function addScore (hand, total) {
 }
 
 // I am making the player and dealer hands both empty arrays
-
 let playerHand = [];
 let dealerHand = [];
 
