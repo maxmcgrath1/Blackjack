@@ -21,9 +21,6 @@ let cardOneSuit = document.querySelector('.cardOne .suit');
 let cardTwoRank = document.querySelector('.cardTwo .rank');
 let cardTwoSuit = document.querySelector('.cardTwo .suit');
 
-cardOne.style.visibility = 'hidden';
-cardTwo.style.visibility = 'hidden';
-
 // These are the initial dealer cards
 let dealerFaceUp = document.querySelector('.dealerFaceUp');
 let dealerFaceDown = document.querySelector('.dealerFaceDown');
@@ -76,6 +73,8 @@ stay.disabled = true;
 let acesHaveChanged = false;
 let acesHaveChangedDealer = false;
 
+cardOne.style.visibility = 'hidden';
+cardTwo.style.visibility = 'hidden';
 hitCardOne.style.visibility = 'hidden';
 hitCardTwo.style.visibility = 'hidden';
 hitCardThree.style.visibility = 'hidden';
