@@ -226,6 +226,27 @@ function checkForBustDealer() {
     }
 }
 
+//The win conditions other than a player bust
+function checkWin() {
+    dealerTotalScore = addScore(dealerHand)
+    playerTotalScore = addScore(playerHand)
+    if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
+        endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER!'
+    } else
+        if (dealerTotalScore > 21) {
+            checkForBustDealer();
+        } else
+            if (dealerTotalScore > playerTotalScore) {
+                endGameStatus.innerHTML = 'Dealer Wins. Better Luck Next Time!'
+            } else
+                if (playerTotalScore > dealerTotalScore) {
+                    endGameStatus.innerHTML = 'YOU WIN!'
+                } else
+                    if (playerTotalScore == dealerTotalScore) {
+                        endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
+                    }               
+}
+
 // Here I am trying to use my randomDeal function to initally deal 2 cards to the dealer and 2 cards to the player.
 function startingDeal() {
     startGame.disabled = true;
@@ -311,25 +332,4 @@ function dealerTurn() {
             }
         }  
     addScore(dealerHand);
-}
-
-//The win conditions other than a player bust
-function checkWin() {
-    dealerTotalScore = addScore(dealerHand)
-    playerTotalScore = addScore(playerHand)
-    if (playerHand.length == 2 && playerTotalScore == 21 && (dealerHand.length == 2 && dealerTotalScore !== 21)) {
-        endGameStatus.innerHTML = 'WINNER WINNER CHICKEN DINNER!'
-    } else
-        if (dealerTotalScore > 21) {
-            checkForBustDealer();
-        } else
-            if (dealerTotalScore > playerTotalScore) {
-                endGameStatus.innerHTML = 'Dealer Wins. Better Luck Next Time!'
-            } else
-                if (playerTotalScore > dealerTotalScore) {
-                    endGameStatus.innerHTML = 'YOU WIN!'
-                } else
-                    if (playerTotalScore == dealerTotalScore) {
-                        endGameStatus.innerHTML = 'You Tied the Dealer. This Round Is A Push'
-                    }               
 }
