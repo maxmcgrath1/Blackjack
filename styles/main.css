@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    /* height: 60%; */
+    height: 60%;
 }
 
 .cardOne, .cardTwo, .hitCardOne, .hitCardTwo, .hitCardThree, .dealerFaceUp, .dealerFaceDown, .stayCardOne, .stayCardTwo, .stayCardThree {
